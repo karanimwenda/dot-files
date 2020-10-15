@@ -37,6 +37,19 @@ init-zsh() {
     echo "======================================"
 }
 
+init-ncmpcpp() {
+    echo "======================================"
+    echo "Adding mpd and ncmpcpp configs soft links to home"
+    echo "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_"
+
+    ln -s $PWD/.ncmpcpp ~/.ncmpcpp
+    echo " .ncmpcpp added"
+
+    echo "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_"
+    echo "Done"
+    echo "======================================"
+}
+
 clean-home() {
     echo "======================================"
     echo "Deleting"
@@ -58,6 +71,9 @@ clean-home() {
     rm -rf ~/.zshrc
     echo "   .zshrc"
 
+    echo "3. ncmpcpp files"
+    rm -rf ~/.ncmpcpp
+
     echo "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_"
     echo "Done."
     echo "======================================"
@@ -76,11 +92,17 @@ elif [ $1 = "zsh" ]
 then
     init-zsh
 
+elif [ $1 = "ncmpcpp" ] 
+then
+    init-ncmpcpp
+
 elif [ $1 = "all" ] 
 then
     initvim
     echo
     init-zsh
+    echo
+    init-ncmpcpp
 
 elif [ $1 = "clean" ]
 then
