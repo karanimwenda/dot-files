@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='/home/timo/Documents/Projects/School_Projects/Hotel_Reservation/users'
+let g:netrw_dirhist_4='/home/timo/Documents/Projects/Django_beginner/blog/blog_project'
+let g:netrw_dirhist_3='/home/timo/Documents/Projects/Django_beginner/mb/templates'
+let g:netrw_dirhist_2='/home/timo/Backups/Documents/Programming_Tutorials/OpenGL/Opengl_Practice/source/1.Getting_Started'
+let g:netrw_dirhist_1='/home/timo/Backups/Documents/Programming_Tutorials/Vulkan/Vulkan-glTF-PBR'
