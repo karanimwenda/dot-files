@@ -7,9 +7,11 @@ initvim() {
     echo "Adding vim configs soft links to home"
     echo "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_"
     ln -s $PWD/.vimrc ~/.vimrc
-    echo " 1.vimrc added"
-    ln -s $PWD/.vim ~/.vim
-    echo " 2.vim added"
+    echo " .vimrc added"
+    ln -s $PWD/.vim/after ~/.vim/after
+    echo " .vim/after added"
+    ln -s $PWD/.vim/coc-settings.json ~/.vim/coc-settings.json
+    echo " .vim/coc-settings.json added"
     echo "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_"
     echo "Done"
     echo "======================================"
@@ -19,10 +21,13 @@ clean-home() {
     echo "======================================"
     echo "Deleting"
     echo "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_"
-    echo " .vimrc"
+    echo "1. Vim Files:"
+    echo "   .vimrc"
     rm -rf ~/.vimrc 
-    # echo " .vim"
-    # rm -rf ~/.vim
+    echo "   .vim/coc-settings.json"
+    rm -rf ~/.vim/coc-settings.json
+    echo "   .vim/after"
+    rm -rf ~/.vim/after
     echo "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_"
     echo "Done."
     echo "======================================"
