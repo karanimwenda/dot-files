@@ -39,7 +39,7 @@ init-zsh() {
 
 init-ncmpcpp() {
     echo "======================================"
-    echo "Adding mpd and ncmpcpp configs soft links to home"
+    echo "Adding ncmpcpp configs soft links"
     echo "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_"
 
     ln -s $PWD/.ncmpcpp ~/.ncmpcpp
@@ -70,6 +70,8 @@ clean-home() {
     echo "   .p10k.zsh"
     rm -rf ~/.zshrc
     echo "   .zshrc"
+
+    echo 
 
     echo "3. ncmpcpp files"
     rm -rf ~/.ncmpcpp
