@@ -50,6 +50,14 @@ init-ncmpcpp() {
     echo "======================================"
 }
 
+license() {
+echo "dot-files Copyright (C) 2020 Timothy Karani
+This program comes with ABSOLUTELY NO WARRANTY.
+This is free software, and you are welcome to redistribute it
+under certain conditions.
+For details visit <https://www.gnu.org/licenses/>."
+}
+
 clean-home() {
     echo "======================================"
     echo "Deleting"
@@ -97,6 +105,10 @@ then
 elif [ $1 = "ncmpcpp" ] 
 then
     init-ncmpcpp
+
+elif [ $1 = "license" ] 
+then
+    license
 
 elif [ $1 = "all" ] 
 then
