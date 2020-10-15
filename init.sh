@@ -6,12 +6,32 @@ initvim() {
     echo "======================================"
     echo "Adding vim configs soft links to home"
     echo "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_"
+
     ln -s $PWD/.vimrc ~/.vimrc
     echo " .vimrc added"
+
     ln -s $PWD/.vim/after ~/.vim/after
     echo " .vim/after added"
+
     ln -s $PWD/.vim/coc-settings.json ~/.vim/coc-settings.json
     echo " .vim/coc-settings.json added"
+
+    echo "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_"
+    echo "Done"
+    echo "======================================"
+}
+
+init-zsh() {
+    echo "======================================"
+    echo "Adding zsh configs soft links to home"
+    echo "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_"
+
+    ln -s $PWD/.p10k.zsh ~/.p10k.zsh
+    echo " .p10k.zsh added"
+
+    ln -s $PWD/.zshrc ~/.zshrc
+    echo " .zshrc added"
+
     echo "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_"
     echo "Done"
     echo "======================================"
@@ -21,6 +41,7 @@ clean-home() {
     echo "======================================"
     echo "Deleting"
     echo "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_"
+
     echo "1. Vim Files:"
     echo "   .vimrc"
     rm -rf ~/.vimrc 
@@ -28,6 +49,15 @@ clean-home() {
     rm -rf ~/.vim/coc-settings.json
     echo "   .vim/after"
     rm -rf ~/.vim/after
+
+    echo 
+
+    echo "2. zsh files"
+    rm -rf ~/.p10k.zsh
+    echo "   .p10k.zsh"
+    rm -rf ~/.zshrc
+    echo "   .zshrc"
+
     echo "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_"
     echo "Done."
     echo "======================================"
@@ -41,6 +71,16 @@ then
 elif [ $1 = "vim" ] 
 then
     initvim
+    
+elif [ $1 = "zsh" ] 
+then
+    init-zsh
+
+elif [ $1 = "all" ] 
+then
+    initvim
+    echo
+    init-zsh
 
 elif [ $1 = "clean" ]
 then
