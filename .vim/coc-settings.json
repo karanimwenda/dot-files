@@ -31,6 +31,16 @@
       "initializationOptions": {
         "usePlaceholders": true
       }
+    },
+    "lua": {
+      "command": "java",
+      "args": [
+        "-cp",
+        "/home/timo/.programs/vim-utils/EmmyLua-LS-all.jar",
+        "com.tang.vscode.MainKt"
+      ],
+      "filetypes": ["lua"],
+      "rootPatterns": [".git/"]
     }
   },
   "coc.preferences.formatOnSaveFiletypes": [
@@ -46,8 +56,11 @@
     "dart",
     "python",
     "go",
-    "css",
-    "java"
+    "java",
+    "php",
+    "yaml",
+    "lua",
+    "css"
   ],
   "prettier.bracketSpacing": true,
   "prettier.singleQuote": true,

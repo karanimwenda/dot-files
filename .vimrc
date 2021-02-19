@@ -6,7 +6,7 @@ filetype off                  " required
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 Plug 'itchyny/lightline.vim'
-Plug 'dense-analysis/ale'
+" Plug 'dense-analysis/ale'
 Plug 'mattn/emmet-vim'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
@@ -20,7 +20,10 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'jiangmiao/auto-pairs'
 
 " Initialize plugin system
 call plug#end()
@@ -39,11 +42,15 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 source $VIMRUNTIME/defaults.vim
 
+" Search but do not jump
+nnoremap * :keepjumps normal! mi*`i<CR>
+
 set expandtab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set number
+set relativenumber
 " Make the status line visible
 set laststatus=2
 packadd termdebug
@@ -53,6 +60,9 @@ highlight PmenuSel ctermbg=darkgreen ctermfg=white
 highlight Visual cterm=NONE ctermbg=blue ctermfg=NONE guibg=brown
 highlight CursorColumn ctermbg=green ctermfg=NONE
 "CursorColumn CocHighlightText CocHighlightRead CocHighlightWrite
+"
+" For vertsplit
+highlight VertSplit cterm=NONE ctermbg=black ctermfg=blue
 
 " Since I am not using consolas, change the arrows to these
 "let g:NERDTreeDirArrowExpandable="\u00BB"
@@ -86,10 +96,14 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Unknown"   : "?"
     \ }
 
+
+let g:UltiSnipsExpandTrigger = "<leader>fu"
+
 nmap <leader>ff :Files<cr>
 nmap <leader>fF :Files!<cr>
 nmap <leader>fb :BLines<cr>
 nmap <leader>fc :BCommits!<cr>
+inoremap <Leader>fs <ESC>:Snippets<CR>
 
 let g:lightline = {
     \ 'colorscheme': 'wombat',
@@ -102,12 +116,12 @@ let g:vim_markdown_folding_disabled = 1
 let g:ale_echo_msg_format = '%linter% says %s'
 
 " Do not lint or fix c++ files.
-let g:ale_pattern_options = {
-\ '\.cpp$': {'ale_linters': [], 'ale_fixers': []},
-\ '\.cc$': {'ale_linters': [], 'ale_fixers': []},
-\ '\.h$': {'ale_linters': [], 'ale_fixers': []},
-\ '\.java$': {'ale_linters': [], 'ale_fixers': []},
-\}
+" let g:ale_pattern_options = {
+" \ '\.cpp$': {'ale_linters': [], 'ale_fixers': []},
+" \ '\.cc$': {'ale_linters': [], 'ale_fixers': []},
+" \ '\.h$': {'ale_linters': [], 'ale_fixers': []},
+" \ '\.java$': {'ale_linters': [], 'ale_fixers': []},
+" \}
 
 "let g:ale_linters = {
 "\   'c': [], 'cpp': [], 'rust': [], 'go': [], 'python': [], 'sh': [],

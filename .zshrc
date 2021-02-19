@@ -21,12 +21,13 @@ path+=("/home/timo/.programs/flutter/bin")
 path+=("/home/timo/.programs/jam")
 path+=("/home/timo/.gem/ruby/2.7.0/bin")
 path+=("/home/timo/.programs/git_clang_format")
-path+=("/home/timo/Android/Sdk/ndk/21.0.6113669")
+path+=("/home/timo/Android/Sdk/ndk/22.0.7026061")
 path+=("/home/timo/.cargo/bin")
 path+=("/home/timo/.go/bin")
 path+=("/home/timo/.programs/appimagetool")
 path+=("/home/timo/.npm-global/bin")
 path+=("/home/timo/.programs/exercism")
+path+=("/home/timo/.config/composer/vendor/bin")
 # Add vulkan to path
 path=($VULKAN_SDK $path)
 export PATH
@@ -44,6 +45,8 @@ export ANDROID_HOME="/home/timo/Android/Sdk"
 export GOPATH="/home/timo/.go"
 
 eval "$(zoxide init zsh)"
+
+eval `ssh-agent` > /dev/null
 
 # Enable both 32 bit and 64 bit Wine environments
 #WINEARCH=win32 WINEPREFIX=~/win32 winecfg
@@ -154,3 +157,5 @@ alias lt='ls --tree'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+
+(cat ~/.cache/wal/sequences &)

@@ -4,3 +4,4 @@
 .ncmpcpp/error.log
 .ncmpcpp/mpd.fifo
 .ncmpcpp/patterns.list
+.ncmpcpp/lyrics
