@@ -105,6 +105,10 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesom
 
 praisewidget = wibox.widget.textbox()
 praisewidget.text = "c3n7"
+separator = wibox.widget.separator({
+    forced_width = 10,
+    color = beautiful.bg_normal,
+})
 
 mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
                                      menu = mymainmenu })
@@ -230,17 +234,22 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             mpd_widget,
             mykeyboardlayout,
+            separator,
             github_contributions_widget({
                 username="c3n7",
                 theme="standard",
                 color_of_empty_cells = beautiful.bg_normal,
             }),
+            separator,
             cpu_widget(),
             ram_widget(),
+            separator,
             volumearc_widget(),
+            separator,
             batteryarc_widget({
                 show_current_level = true,
             }),
+            separator,
             mytextclock,
             wibox.widget.systray(),
             s.mylayoutbox,
