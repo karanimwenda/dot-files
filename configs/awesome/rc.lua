@@ -25,6 +25,7 @@ local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
 local mpd_widget = require("awesome-wm-widgets.mpdarc-widget.mpdarc")
 local volumearc_widget = require("awesome-wm-widgets.volumearc-widget.volumearc")
 local github_contributions_widget = require("awesome-wm-widgets.github-contributions-widget.github-contributions-widget")
+local fs_widget = require("awesome-wm-widgets.fs-widget.fs-widget")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -251,6 +252,7 @@ awful.screen.connect_for_each_screen(function(s)
             }),
             separator,
             mytextclock,
+            fs_widget(),
             wibox.widget.systray(),
             s.mylayoutbox,
         },
