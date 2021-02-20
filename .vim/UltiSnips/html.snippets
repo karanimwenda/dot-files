@@ -1,0 +1,47 @@
+snippet domloaded "DOMContentLoaded" -b
+window.addEventListener('DOMContentLoaded', (event) => {
+$1
+});
+endsnippet
+
+snippet fetchget "fetch api" -b
+fetch('$1')
+.then(response => response.json())
+.then(data => {
+$2
+})
+.catch((error) => {
+  console.error('Error:', error);
+});
+endsnippet
+
+
+snippet fetchpost "fetch api" -b
+const formData = new FormData();
+fetch('$1', {
+  method: 'POST',
+  body: formData
+})
+.then(response => response.json())
+.then(result => {
+  ${2:console.log('Success:', result);}
+})
+.catch(error => {
+  console.error('Error:', error);
+});
+endsnippet
+
+snippet commify "Add a hidden comma to an element" -b
+<input type="number" class="form-control hide-this" name="$1" id="$1" required>
+<input type="text" class="form-control" id="$2" required>
+<script>
+	window.addEventListener('DOMContentLoaded', (event) => {
+	  commify('#$1', '#$2');
+	});
+</script>$0
+endsnippet
+
+snippet query "Query Selector" -b
+const $1 = document.querySelector("#$1");
+$0
+endsnippet
