@@ -14,7 +14,7 @@ export VK_SDK_PATH=$VULKAN_SDK
 export LD_LIBRARY_PATH=$VULKAN_SDK/lib
 export VK_LAYER_PATH=$VULKAN_SDK/etc/vulkan/explicit_layer.d
 #export VK_ICD_FILENAMES=/etc/vulkan/icd.d/nvidia_icd.json
-export EDITOR=/usr/bin/vim
+export EDITOR=/usr/bin/nvim
 export CHROME_EXECUTABLE=google-chrome-stable
 
 path+=("/home/timo/.programs/flutter/bin")
@@ -154,7 +154,7 @@ alias l='ls -a'
 alias la='ls -a'
 alias lla='ls -la'
 alias lt='ls --tree'
-alias nv='nvim'
+alias gpp='git pull && git push'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
