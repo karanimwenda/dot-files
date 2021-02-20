@@ -22,6 +22,9 @@ require("awful.hotkeys_popup.keys")
 local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 local batteryarc_widget = require("awesome-wm-widgets.batteryarc-widget.batteryarc")
 local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
+local mpd_widget = require("awesome-wm-widgets.mpdarc-widget.mpdarc")
+local volumearc_widget = require("awesome-wm-widgets.volumearc-widget.volumearc")
+local github_contributions_widget = require("awesome-wm-widgets.github-contributions-widget.github-contributions-widget")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -219,15 +222,25 @@ awful.screen.connect_for_each_screen(function(s)
             s.mytaglist,
             s.mypromptbox,
         },
-        s.mytasklist, -- Middle widget
+        { -- Middle widget
+            layout = wibox.layout.fixed.horizontal,
+            s.mytasklist,
+        },
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
+            mpd_widget,
             mykeyboardlayout,
+            github_contributions_widget({
+                username="c3n7",
+                theme="standard",
+                color_of_empty_cells = beautiful.bg_normal,
+            }),
             cpu_widget(),
+            ram_widget(),
+            volumearc_widget(),
             batteryarc_widget({
                 show_current_level = true,
             }),
-            ram_widget(),
             mytextclock,
             wibox.widget.systray(),
             s.mylayoutbox,
