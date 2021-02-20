@@ -18,6 +18,11 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
+-- Widgets
+local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
+local batteryarc_widget = require("awesome-wm-widgets.batteryarc-widget.batteryarc")
+local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -218,8 +223,13 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
-            wibox.widget.systray(),
+            cpu_widget(),
+            batteryarc_widget({
+                show_current_level = true,
+            }),
+            ram_widget(),
             mytextclock,
+            wibox.widget.systray(),
             s.mylayoutbox,
         },
     }
