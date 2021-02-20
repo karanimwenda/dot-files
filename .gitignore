@@ -5,3 +5,6 @@
 .ncmpcpp/mpd.fifo
 .ncmpcpp/patterns.list
 .ncmpcpp/lyrics
+
+venv/
+env/
