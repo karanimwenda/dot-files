@@ -437,6 +437,36 @@ globalkeys = gears.table.join(
               {description = "prev", group = "music"}),
 
 
+    -- Screenshots
+    awful.key({modkey}, "Print",     function () 
+            awful.util.spawn_with_shell("scrot --focused -q 100 -e 'mv $f /home/timo/Pictures/'")
+            naughty.notify({ title = "Window screenshot saved",
+                text = "Screenshot saved in ~/Pictures",
+                timeout = 5
+            })
+    end,
+              {description = "focused window screenshot", group = "display"}),
+
+    awful.key({modkey, "Shift"}, "Print",     function () 
+            awful.util.spawn_with_shell("scrot --select -q 100 -e 'mv $f /home/timo/Pictures/'")
+            naughty.notify({ title = "Select area to screenshot",
+                text = "Screenshot will be saved in ~/Pictures",
+                timeout = 5
+            })
+    end,
+              {description = "draw screenshot area", group = "display"}),
+
+
+    awful.key({}, "Print",     function () 
+            awful.util.spawn_with_shell("scrot -q 100 -e 'mv $f /home/timo/Pictures/'")
+            naughty.notify({ title = "Screenshot saved",
+                text = "Screenshot saved in ~/Pictures",
+                timeout = 5
+            })
+    end,
+              {description = "fullscreen screenshot", group = "display"}),
+
+
     -- Applications
     awful.key({modkey}, "F2",     function () 
         awful.util.spawn("brave")
