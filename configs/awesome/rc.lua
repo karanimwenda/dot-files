@@ -22,10 +22,14 @@ require("awful.hotkeys_popup.keys")
 local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 local batteryarc_widget = require("awesome-wm-widgets.batteryarc-widget.batteryarc")
 local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
-local mpd_widget = require("awesome-wm-widgets.mpdarc-widget.mpdarc")
+-- local mpd_widget = require("awesome-wm-widgets.mpdarc-widget.mpdarc")
 local volumearc_widget = require("awesome-wm-widgets.volumearc-widget.volumearc")
 local github_contributions_widget = require("awesome-wm-widgets.github-contributions-widget.github-contributions-widget")
 local fs_widget = require("awesome-wm-widgets.fs-widget.fs-widget")
+
+-- custom utility script --
+local mpd_util = require("c3n7ly-utilities.mpd.mpd")
+
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -233,13 +237,14 @@ awful.screen.connect_for_each_screen(function(s)
         },
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            mpd_widget,
-            mykeyboardlayout,
+            -- mpd_widget,
+            -- mykeyboardlayout,
             separator,
             github_contributions_widget({
                 username="c3n7",
                 theme="standard",
                 color_of_empty_cells = beautiful.bg_normal,
+                days=600,
             }),
             separator,
             cpu_widget(),
@@ -423,16 +428,35 @@ globalkeys = gears.table.join(
     -- MPD Controls
     awful.key({}, "XF86AudioPlay",     function () 
         awful.util.spawn("mpc toggle")
+
+        mpd_util.update_stats()
+        naughty.notify({ title = mpd_util.mpd_status(),
+            text = mpd_util.current_track(),
+            timeout = 3
+        })
     end,
               {description = "play/pause", group = "music"}),
 
     awful.key({}, "XF86AudioNext",     function () 
         awful.util.spawn("mpc next")
+
+
+        mpd_util.update_stats()
+        naughty.notify({ title = mpd_util.mpd_status(),
+            text = mpd_util.current_track(),
+            timeout = 3
+        })
     end,
               {description = "next", group = "music"}),
 
     awful.key({}, "XF86AudioPrev",     function () 
         awful.util.spawn("mpc prev")
+
+        mpd_util.update_stats()
+        naughty.notify({ title = mpd_util.mpd_status(),
+            text = mpd_util.current_track(),
+            timeout = 3
+        })
     end,
               {description = "prev", group = "music"}),
 
