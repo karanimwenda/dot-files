@@ -155,6 +155,8 @@ alias la='ls -a'
 alias lla='ls -la'
 alias lt='ls --tree'
 alias gpp='git pull && git push'
+alias dcu='docker-compose up -d'
+alias dcd='docker-compose down'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
