@@ -371,6 +371,21 @@ globalkeys = gears.table.join(
     end,
             {description = "run dmenu", group = "launcher"}),
 
+
+    awful.key({ modkey, "Shift" },            "y",     function () 
+        os.execute(
+            string.format(
+                "YTFZF_EXTMENU=\"dmenu -i -l 30 -p %s:\" ytfzf -D",
+                -- "YTFZF_EXTMENU=\"dmenu -i -l 30 -nf '%s' -nb '%s' -sb '%s' -sf '%s' -p search:\" ytfzf -D",
+                -- beautiful.fg_focus, beautiful.bg_normal, beautiful.border_focus, beautiful.fg_normal
+                "ytfzf"
+            )
+        )
+    end,
+            {description = "play from youtube", group = "launcher"}),
+
+
+
     -- Applications launcher
     awful.key({ modkey, "Shift" },            "i",     function () 
         awful.util.spawn("/home/timo/.config/rofi/launchers-git/launcherAlt.sh")

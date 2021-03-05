@@ -60,7 +60,8 @@
     "php",
     "yaml",
     "lua",
-    "css"
+    "css",
+    "vue"
   ],
   "prettier.bracketSpacing": true,
   "prettier.singleQuote": true,
