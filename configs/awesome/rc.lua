@@ -523,6 +523,13 @@ globalkeys = gears.table.join(
                   }
               end,
               {description = "lua execute prompt", group = "awesome"}),
+
+    awful.key({modkey, 'Shift'}, "l",     function () 
+        awful.util.spawn("blurlock")
+    end,
+              {description = "lock screen", group = "awesome"}),
+
+
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
               {description = "show the menubar", group = "launcher"})
