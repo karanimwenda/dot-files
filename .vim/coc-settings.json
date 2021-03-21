@@ -61,6 +61,7 @@
     "yaml",
     "lua",
     "css",
+    "xml",
     "vue"
   ],
   "prettier.bracketSpacing": true,

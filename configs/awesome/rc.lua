@@ -687,6 +687,7 @@ awful.rules.rules = {
         -- and the name shown there might not match defined rules here.
         name = {
           "Event Tester",  -- xev.
+          "Android Emulator - Pixel_4_API_30:5554"
         },
         role = {
           "AlarmWindow",  -- Thunderbird's calendar.
@@ -700,6 +701,24 @@ awful.rules.rules = {
       -- }, properties = { titlebars_enabled = true }
     -- },
 
+    {
+        rule = { 
+          name = "Android Emulator - Pixel_4_API_30:5554"
+        },
+        properties = {
+            floating = true,
+            width = 407,
+            height = 864,
+            x  = 1230,
+            y = 86
+        }
+    },
+
+
+    -- Set Libreoffice to always be tiled
+    { rule = { class = "libreoffice" },
+      properties = { floating = false, maximize = false, below = false }
+    },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
     -- { rule = { class = "Firefox" },
