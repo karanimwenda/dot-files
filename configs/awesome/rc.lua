@@ -812,5 +812,6 @@ awful.spawn.with_shell("xfce4-power-manager")
 awful.spawn.with_shell("pamac-tray")
 -- awful.spawn.with_shell("clipit")
 awful.spawn.with_shell("fix_xcursor")
+awful.spawn.with_shell("/home/timo/.config/conky/launch.sh")
 
 beautiful.useless_gap = 4
