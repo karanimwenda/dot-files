@@ -513,6 +513,13 @@ globalkeys = gears.table.join(
               {description = "brave browser", group = "applications"}),
 
 
+    awful.key({modkey}, "F3",     function () 
+        awful.util.spawn("pcmanfm")
+    end,
+              {description = "pcmanfm", group = "applications"}),
+
+
+
     awful.key({ modkey }, "x",
               function ()
                   awful.prompt.run {
@@ -524,7 +531,7 @@ globalkeys = gears.table.join(
               end,
               {description = "lua execute prompt", group = "awesome"}),
 
-    awful.key({modkey, 'Shift'}, "l",     function () 
+    awful.key({modkey, 'Control'}, "l",     function () 
         awful.util.spawn("blurlock")
     end,
               {description = "lock screen", group = "awesome"}),
@@ -717,8 +724,15 @@ awful.rules.rules = {
 
     -- Set Libreoffice to always be tiled
     { rule = { class = "libreoffice" },
-      properties = { floating = false, maximize = false, below = false }
+      properties = { maximized = false }
     },
+
+    -- Set Brave Browser to always be tiled
+    { rule = { class = "Brave-browser" },
+      properties = { maximized = false, floating = false }
+    },
+
+
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
     -- { rule = { class = "Firefox" },
