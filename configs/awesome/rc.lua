@@ -686,6 +686,7 @@ awful.rules.rules = {
           "Sxiv",
           "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
           "Wpa_gui",
+          "com-badlogic-gdx-setup-GdxSetup",
           "veromix",
           "Pavucontrol",
           "xtightvncviewer"},
