@@ -61,6 +61,7 @@
     "lua",
     "css",
     "xml",
+    "python",
     "vue"
   ],
   "prettier.bracketSpacing": true,
