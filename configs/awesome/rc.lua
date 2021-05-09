@@ -750,6 +750,12 @@ awful.rules.rules = {
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
 client.connect_signal("manage", function (c)
+    -- Rounded borders for clients
+    -- https://www.reddit.com/r/awesomewm/comments/61s020/round_corners_for_every_client/
+    c.shape = function(cr,w,h)
+        gears.shape.rounded_rect(cr,w,h,6)
+    end
+
     -- Set the windows at the slave,
     -- i.e. put it at the end of others instead of setting it master.
     -- if not awesome.startup then awful.client.setslave(c) end
