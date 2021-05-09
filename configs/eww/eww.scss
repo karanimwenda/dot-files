@@ -33,23 +33,34 @@ progress {
   min-width: 233px;
 }
 
+.label {
+  all: unset;
+  margin-right: 5px;
+  color: $fgcolor;
+  font-size: 40px;
+}
+
 .ram_used progress {
   background-color: $yellow;
+}
+
+.ram_used .label {
+  color: $yellow;
 }
 
 .storage_used progress {
   background-color: $purple;
 }
 
+.storage_used .label {
+  color: $purple;
+}
+
 .light_percentage progress {
   background-color: $green;
 }
-
-.label {
-  all: unset;
-  margin-right: 5px;
-  color: $fgcolor;
-  font-size: 40px;
+.light_percentage .label {
+  color: $green;
 }
 
 .clock {
