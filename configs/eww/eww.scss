@@ -59,6 +59,7 @@ progress {
 .light_percentage progress {
   background-color: $green;
 }
+
 .light_percentage .label {
   color: $green;
 }
@@ -90,4 +91,38 @@ progress {
   padding-bottom: 20px;
   padding-left: 60px;
   padding-right: 60px;
+}
+
+.mpd_playing {
+  background-color: $bgcolor;
+  color: $fgcolor;
+  padding-top: 10px;
+  padding-bottom: 00px;
+  padding-left: 30px;
+  padding-right: 30px;
+  min-width: 318px;
+}
+
+.mpd_playing .label {
+  color: $blue;
+  font-size: 100px;
+}
+
+.mpd_labels {
+  margin-left: 8px;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  min-width: 256px;
+}
+
+.title-label {
+  font-size: 19px;
+  // font-weight: lighter;
+  color: $blue;
+}
+
+.artist-label {
+  // font-weight: 400;
+  font-weight: lighter;
+  // color: $blue;
 }

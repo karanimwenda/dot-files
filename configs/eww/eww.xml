@@ -30,10 +30,19 @@
                 </box>
             </box>
         </def>
-        <def name="sidebar">
-            <box class="sidebar" vexpand="true" hexpand="false" orientation="v">
-                <clock class="row"/>
-                <resource_usage class="row"/>
+        <def name="mpd_playing">
+            <box class="mpd_playing" orientation="h" space-evenly="false">
+                <box class="label">
+                    
+                </box>
+                <box orientation="v" space-evenly="false" class="mpd_labels">
+                    <box class="title-label">
+                        {{playing_title}}
+                    </box>
+                    <box class="artist-label">
+                        {{playing_artist}}
+                    </box>
+                </box>
             </box>
         </def>
     </definitions>
@@ -50,6 +59,12 @@
         <script-var name="light_percentage" interval="5s">
             light
         </script-var>
+        <script-var name="playing_artist" interval="5s">
+            mpc -f 'mpc_cur %artist%' | grep "mpc_cur" | gawk '{$1=""}sub(FS,"")' | cut -c 1-21 | xargs
+        </script-var>
+        <script-var name="playing_title" interval="5s">
+            mpc -f 'mpc_cur %title%' | grep "mpc_cur" | gawk '{$1=""}sub(FS,"")' | cut -c 1-21 | xargs
+        </script-var>
     </variables>
 
     <windows>
@@ -65,6 +80,13 @@
             <reserve side="left" distance="50px"/>
             <widget>
                 <resource_usage/>
+            </widget>
+        </window>
+        <window name="mpd_playing_side" stacking="bg" focusable="false">
+            <geometry anchor="top left" x="12px" y="352px" width="330"/>
+            <reserve side="left" distance="50px"/>
+            <widget>
+                <mpd_playing/>
             </widget>
         </window>
     </windows>
