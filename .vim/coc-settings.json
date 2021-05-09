@@ -62,6 +62,7 @@
     "css",
     "xml",
     "python",
+    "scss",
     "vue"
   ],
   "prettier.bracketSpacing": true,
