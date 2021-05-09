@@ -22,7 +22,34 @@ window {
 }
 
 progress {
-  background-color: #f0f;
+  border-radius: 5px;
+}
+
+.progress {
+  background-color: $grey;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  margin-top: 13px;
+  min-width: 233px;
+}
+
+.ram_used progress {
+  background-color: $yellow;
+}
+
+.storage_used progress {
+  background-color: $purple;
+}
+
+.light_percentage progress {
+  background-color: $green;
+}
+
+.label {
+  all: unset;
+  margin-right: 5px;
+  color: $fgcolor;
+  font-size: 40px;
 }
 
 .clock {
@@ -39,4 +66,17 @@ progress {
 .clock-minute {
   color: $aqua;
   padding-left: 15px;
+}
+
+.row {
+  margin-top: 5px;
+}
+
+.resource_usage {
+  background-color: $bgcolor;
+  color: $fgcolor;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 60px;
+  padding-right: 60px;
 }
