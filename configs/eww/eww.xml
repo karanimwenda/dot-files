@@ -44,7 +44,7 @@
         <script-var name="ram_used" interval="5s">
             free -h | grep -i mem | gawk '{print $3/$2 * 100}'
         </script-var>
-        <script-var name="storage_used" interval="5s">
+        <script-var name="storage_used" interval="1m">
             df  | grep "/dev/sda6" | gawk '{print $3/$2 * 100}'
         </script-var>
         <script-var name="light_percentage" interval="5s">
