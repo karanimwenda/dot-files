@@ -17,7 +17,7 @@
 
     <windows>
         <window name="main_window" stacking="bg" focusable="false">
-            <geometry anchor="top left" x="1%" y="3%" width="250px" height="20px"/>
+            <geometry anchor="top left" x="12px" y="3%" width="250px" height="20px"/>
             <reserve side="left" distance="50px"/>
             <widget>
                 <clock/>
