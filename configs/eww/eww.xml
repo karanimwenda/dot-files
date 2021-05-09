@@ -1,0 +1,27 @@
+<eww>
+    <includes>
+    </includes>
+
+    <definitions>
+        <def name="clock">
+            <box class="clock">
+                <box class="clock-hour">{{hour}}</box> <box class="clock-minute">{{minute}}</box>
+            </box>
+        </def>
+    </definitions>
+
+    <variables>
+        <script-var name="hour">date +"%H"</script-var>
+        <script-var name="minute">date +"%M"</script-var>
+    </variables>
+
+    <windows>
+        <window name="main_window" stacking="bg" focusable="false">
+            <geometry anchor="top left" x="1%" y="3%" width="250px" height="20px"/>
+            <reserve side="left" distance="50px"/>
+            <widget>
+                <clock/>
+            </widget>
+        </window>
+    </windows>
+</eww>
