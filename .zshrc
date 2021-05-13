@@ -28,6 +28,7 @@ path+=("/home/timo/.programs/appimagetool")
 path+=("/home/timo/.npm-global/bin")
 path+=("/home/timo/.programs/exercism")
 path+=("/home/timo/.config/composer/vendor/bin")
+path+=('/home/timo/.programs/rice/eww/target/release')
 # Add vulkan to path
 path=($VULKAN_SDK $path)
 export PATH
@@ -161,4 +162,4 @@ alias dcd='docker-compose down'
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
-(cat ~/.cache/wal/sequences &)
+# (cat ~/.cache/wal/sequences &)
