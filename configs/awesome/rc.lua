@@ -538,7 +538,7 @@ globalkeys = gears.table.join(
               {description = "lua execute prompt", group = "awesome"}),
 
     awful.key({modkey, 'Control'}, "l",     function () 
-        awful.util.spawn("blurlock")
+        awful.util.spawn("i3lock-fancy")
     end,
               {description = "lock screen", group = "awesome"}),
 
