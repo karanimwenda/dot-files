@@ -104,7 +104,7 @@ myawesomemenu = {
 }
 
 sysmenu = {
-    { "reboot", "sudo reboot now" },
+    { "reboot", "shutdown -r reboot" },
     { "shutdown", "shutdown now" }
 }
 
