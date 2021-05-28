@@ -739,6 +739,10 @@ awful.rules.rules = {
       properties = { maximized = false, floating = false }
     },
 
+    -- Set Unity to always be maximized
+    { rule = { class = "Unity" },
+      properties = { maximized = true }
+    },
 
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
