@@ -19,7 +19,7 @@ export CHROME_EXECUTABLE=google-chrome-stable
 
 path+=("/home/timo/.programs/flutter/bin")
 path+=("/home/timo/.programs/jam")
-path+=("/home/timo/.gem/ruby/2.7.0/bin")
+path+=("/home/timo/.gem/ruby/3.0.0/bin")
 path+=("/home/timo/.programs/git_clang_format")
 path+=("/home/timo/Android/Sdk/ndk/22.0.7026061")
 path+=("/home/timo/.cargo/bin")

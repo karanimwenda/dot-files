@@ -63,7 +63,8 @@
     "xml",
     "python",
     "scss",
-    "vue"
+    "vue",
+    "c#"
   ],
   "prettier.bracketSpacing": true,
   "prettier.singleQuote": true,
