@@ -45,6 +45,8 @@ export ZSH="/home/timo/.oh-my-zsh"
 export ANDROID_HOME="/home/timo/Android/Sdk"
 export GOPATH="/home/timo/.go"
 
+export DOTNET_CLI_TELEMETRY_OPTOUT=true
+
 eval "$(zoxide init zsh)"
 
 eval `ssh-agent` > /dev/null

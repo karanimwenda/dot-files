@@ -1,8 +1,9 @@
+-- vim:foldmethod=marker
 -- If LuaRocks is installed, make sure that packages installed through it are
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
 
--- Standard awesome library
+-- Standard awesome library {{{
 local gears = require("gears")
 local awful = require("awful")
 require("awful.autofocus")
@@ -17,8 +18,9 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
+-- }}}
 
--- Widgets
+-- Widgets {{{
 local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 local batteryarc_widget = require("awesome-wm-widgets.batteryarc-widget.batteryarc")
 local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
@@ -26,6 +28,7 @@ local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
 local volumearc_widget = require("awesome-wm-widgets.volumearc-widget.volumearc")
 local github_contributions_widget = require("awesome-wm-widgets.github-contributions-widget.github-contributions-widget")
 local fs_widget = require("awesome-wm-widgets.fs-widget.fs-widget")
+-- }}}
 
 -- custom utility script --
 local mpd_util = require("c3n7ly-utilities.mpd.mpd")
@@ -77,8 +80,8 @@ awful.layout.layouts = {
     awful.layout.suit.tile,
     awful.layout.suit.magnifier,
     awful.layout.suit.tile.left,
-    awful.layout.suit.tile.bottom,
     awful.layout.suit.tile.top,
+    awful.layout.suit.tile.bottom,
     awful.layout.suit.fair,
     awful.layout.suit.fair.horizontal,
     awful.layout.suit.spiral,
@@ -832,7 +835,7 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
--- AutoStart these
+-- AutoStart these {{{
 awful.spawn.with_shell("mpd")
 -- awful.spawn.with_shell("nitrogen --restore")
 awful.spawn.with_shell("wal --R")
@@ -844,5 +847,6 @@ awful.spawn.with_shell("pamac-tray")
 -- awful.spawn.with_shell("clipit")
 awful.spawn.with_shell("fix_xcursor")
 awful.spawn.with_shell("/home/timo/.config/conky/launch.sh")
+-- }}}
 
 beautiful.useless_gap = 4
