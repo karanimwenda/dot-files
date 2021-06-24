@@ -59,6 +59,8 @@ nnoremap * :keepjumps normal! mi*`i<CR>
 
 " Use gruvbox theme
 autocmd vimenter * ++nested colorscheme gruvbox
+" for neovide
+" colorscheme gruvbox
 let g:airline_theme = 'gruvbox'
 
 " To show the weird icons
