@@ -76,6 +76,8 @@ set number
 set relativenumber
 " Make the status line visible
 set laststatus=2
+set guifont=Hasklug\ Nerd\ Font:11
+
 packadd termdebug
 
 highlight Pmenu ctermbg=black ctermfg=white
