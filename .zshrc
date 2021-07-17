@@ -157,6 +157,9 @@ alias l='ls -a'
 alias la='ls -a'
 alias lla='ls -la'
 alias lt='ls --tree'
+
+alias nv='neovide > /dev/null & ; disown %1 '
+
 alias gpp='git pull && git push'
 alias dcu='docker-compose up -d'
 alias dcd='docker-compose down'
