@@ -28,6 +28,8 @@ Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'OmniSharp/omnisharp-vim'
+Plug 'francoiscabrol/ranger.vim'
+Plug 'rbgrouleff/bclose.vim'
 
 " Plug 'morhetz/gruvbox'
 " Plug 'arcticicestudio/nord-vim'
@@ -117,6 +119,8 @@ let NERDTreeQuitOnOpen = 1
 " Keyboard mapping for NERDTree
 nmap <leader>ne :NERDTreeToggle<cr>:NERDTreeRefreshRoot<cr>
 nmap <leader>mp <Plug>MarkdownPreviewToggle
+
+nmap <leader>nr :Ranger<cr>
 
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1

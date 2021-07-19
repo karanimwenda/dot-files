@@ -29,6 +29,7 @@ path+=("/home/timo/.npm-global/bin")
 path+=("/home/timo/.programs/exercism")
 path+=("/home/timo/.config/composer/vendor/bin")
 path+=('/home/timo/.programs/rice/eww/target/release')
+path+=('/home/timo/.dotnet/tools')
 # Add vulkan to path
 path=($VULKAN_SDK $path)
 export PATH
@@ -161,6 +162,8 @@ alias lt='ls --tree'
 alias nv='neovide > /dev/null & ; disown %1 '
 
 alias gpp='git pull && git push'
+alias gppu="git pull upstream main && git push upstream main"
+alias gpb="git pull && git push && git pull upstream main && git push upstream main"
 alias dcu='docker-compose up -d'
 alias dcd='docker-compose down'
 
