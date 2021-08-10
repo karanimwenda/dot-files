@@ -1,4 +1,4 @@
-" vim:foldmethod=marker 
+" vim:foldmethod=marker
 " header {{{
 set nocompatible              " be iMproved, required
 filetype off                  " required

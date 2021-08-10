@@ -30,6 +30,7 @@ path+=("/home/timo/.programs/exercism")
 path+=("/home/timo/.config/composer/vendor/bin")
 path+=('/home/timo/.programs/rice/eww/target/release')
 path+=('/home/timo/.dotnet/tools')
+path+=('/home/timo/.programs/gdx-setup')
 # Add vulkan to path
 path=($VULKAN_SDK $path)
 export PATH
@@ -160,6 +161,8 @@ alias lla='ls -la'
 alias lt='ls --tree'
 
 alias nv='neovide > /dev/null & ; disown %1 '
+
+alias icat="kitty +kitten icat"
 
 alias gpp='git pull && git push'
 alias gppu="git pull upstream main && git push upstream main"
