@@ -40,7 +40,7 @@ mod = "mod4"
 terminal = guess_terminal()
 home = os.path.expanduser('~')
 
-with open(home + '/.cache/wal/colors.json') as file:
+with open(home + '/.config/dot-files/colors/edge-neon.json') as file:
     theme_colors = file.read()
 
 theme_colors = json.loads(theme_colors)
@@ -146,22 +146,62 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.CurrentLayout(),
-                widget.GroupBox(),
-                widget.Prompt(),
-                widget.WindowName(),
-                widget.Chord(
-                    chords_colors={
-                        'launch': ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
+                widget.TextBox(
+                    "c3n7",
+                    foreground=theme_colors['color0'],
+                    background=theme_colors['color5']
                 ),
-                widget.TextBox("default config", name="default"),
-                widget.TextBox("Press &lt;M-r&gt; to spawn",
-                               foreground=theme_colors['colors']['color2']),
+                widget.GroupBox(
+                    active=theme_colors['color5'],
+                    block_highlight_text_color=theme_colors['color0'],
+                    inactive=theme_colors['color5'],
+                    background=theme_colors['color0'],
+                    highlight_color=theme_colors['color1'],
+                    highlight_method="block",
+                    this_current_screen_border=theme_colors['color5'],
+                ),
+                widget.Prompt(
+                    foreground=theme_colors['color5'],
+                    background=theme_colors['color0'],
+                ),
+                widget.TaskList(
+                    background=theme_colors['color0'],
+                    highlight_method="border",
+                    icon_size=0,
+                    border=theme_colors['color5'],
+                    foreground=theme_colors['color5']
+                ),
+                # widget.WindowName(
+                #     background=theme_colors['color0'],
+                #     foreground=theme_colors['color5'],
+                # ),
+                # widget.Chord(
+                #     chords_colors={
+                #         'launch': ("#ff0000", "#ffffff"),
+                #     },
+                #     name_transform=lambda name: name.upper(),
+                # ),
+                # widget.TextBox("default config", name="default"),
+                widget.Mpd2(
+                    foreground=theme_colors['color0'],
+                    background=theme_colors['color5'],
+                ),
+                widget.CurrentLayout(
+                    foreground=theme_colors['color5'],
+                    background=theme_colors['color0'],
+                ),
+                widget.Volume(),
+                widget.Clock(
+                    format='%Y-%m-%d %a %H:%M %p',
+                    foreground=theme_colors['color0'],
+                    background=theme_colors['color5'],
+                ),
+                widget.QuickExit(
+                    foreground=theme_colors['color5'],
+                    background=theme_colors['color0'],
+                    default_text="log out"
+                ),
                 widget.Systray(),
-                widget.Clock(format='%Y-%m-%d %a %H:%M %p'),
-                widget.QuickExit(),
             ],
             24,
         ),
@@ -201,7 +241,7 @@ reconfigure_screens = True
 auto_minimize = True
 
 
-@hook.subscribe.startup_once
+@ hook.subscribe.startup_once
 def start_once():
     subprocess.Popen([home + '/.config/dot-files/autostart.sh'])
 
@@ -215,3 +255,7 @@ def start_once():
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
 wmname = "LG3D"
+
+
+# Dependencies
+# python-dbus-next

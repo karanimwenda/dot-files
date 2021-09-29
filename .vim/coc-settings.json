@@ -1,5 +1,7 @@
 {
   "python.pythonPath": "python",
+  "python.linting.enabled": false,
+  "python.linting.pylintEnabled": true,
   "languageserver": {
     "clangd": {
       "command": "clangd",
