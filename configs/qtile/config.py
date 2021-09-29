@@ -118,25 +118,30 @@ for i in groups:
         #     desc="move focused window to group {}".format(i.name)),
     ])
 
+shared_layout_options = {
+    "border_width": 2,
+    "margin": 4,
+    "border_normal": theme_colors["color0"],
+    "border_focus": theme_colors["color5"]
+}
+
 layouts = [
     layout.Columns(border_focus_stack=[
         '#d75f5f', '#8f3d3d'],
-        border_width=2, margin=4,
-        border_normal=theme_colors["color0"],
-        border_focus=theme_colors["color5"]
+        **shared_layout_options
     ),
-    layout.Max(),
+    layout.Max(**shared_layout_options),
     # Try more layouts by unleashing below layouts.
     layout.Stack(num_stacks=2),
-    # layout.Bsp(),
-    # layout.Matrix(),
-    # layout.MonadTall(),
-    # layout.MonadWide(),
-    # layout.RatioTile(),
-    # layout.Tile(),
-    # layout.TreeTab(),
-    # layout.VerticalTile(),
-    # layout.Zoomy(),
+    layout.Bsp(**shared_layout_options),
+    layout.Matrix(**shared_layout_options),
+    layout.MonadTall(**shared_layout_options),
+    layout.MonadWide(**shared_layout_options),
+    layout.RatioTile(**shared_layout_options),
+    layout.Tile(**shared_layout_options),
+    layout.TreeTab(**shared_layout_options),
+    layout.VerticalTile(**shared_layout_options),
+    layout.Zoomy(**shared_layout_options),
 ]
 
 widget_defaults = dict(
