@@ -99,6 +99,28 @@ keys = [
     Key([], "XF86AudioPlay", lazy.spawn("mpc toggle"), desc="play/pause"),
     Key([], "XF86AudioNext", lazy.spawn("mpc next"), desc="next track"),
     Key([], "XF86AudioPrev", lazy.spawn("mpc next"), desc="previous track"),
+    Key(
+        [], "XF86AudioMute",
+        lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle"),
+        desc="mute speaker"
+    ),
+    Key(
+        [], "XF86AudioMicMute",
+        lazy.spawn("pactl set-source-mute @DEFAULT_SOURCE@ toggle"),
+        desc="mute mic"
+    ),
+    Key(
+        [], "XF86AudioRaiseVolume",
+        lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ false"),
+        lazy.spawn("pactl set-sink-volume 0 +5%"),
+        desc="volume up"
+    ),
+    Key(
+        [], "XF86AudioLowerVolume",
+        lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ false"),
+        lazy.spawn("pactl set-sink-volume 0 -5%"),
+        desc="volume down"
+    ),
 ]
 
 groups = [Group(i) for i in "123456789"]
