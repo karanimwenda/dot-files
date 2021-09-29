@@ -186,6 +186,7 @@ screens = [
                     active=theme_colors['color5'],
                     block_highlight_text_color=theme_colors['color0'],
                     inactive=theme_colors['color5'],
+                    hide_unused=True,
                     background=theme_colors['color0'],
                     highlight_color=theme_colors['color1'],
                     highlight_method="block",
