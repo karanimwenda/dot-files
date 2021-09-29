@@ -33,6 +33,7 @@ import json
 
 from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
+from libqtile.layout.tree import TreeNode
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
@@ -150,6 +151,8 @@ shared_layout_options = {
 layouts = [
     layout.Columns(border_focus_stack=[
         '#d75f5f', '#8f3d3d'],
+        margin_on_single=8,
+        border_on_single=True,
         **shared_layout_options
     ),
     layout.Max(**shared_layout_options),
