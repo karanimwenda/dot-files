@@ -26,13 +26,24 @@
 
 from typing import List  # noqa: F401
 
-from libqtile import bar, layout, widget
+import os
+import subprocess
+
+import json
+
+from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
 mod = "mod4"
 terminal = guess_terminal()
+home = os.path.expanduser('~')
+
+with open(home + '/.cache/wal/colors.json') as file:
+    theme_colors = file.read()
+
+theme_colors = json.loads(theme_colors)
 
 keys = [
     # Switch between windows
@@ -80,6 +91,14 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(),
         desc="Spawn a command using a prompt widget"),
+
+    Key([mod, "shift"], "i", lazy.spawn(
+        "/home/timo/.config/rofi/launchers-git/launcherAlt.sh"), desc="applications menu"),
+
+    # Music bindings
+    Key([], "XF86AudioPlay", lazy.spawn("mpc toggle"), desc="play/pause"),
+    Key([], "XF86AudioNext", lazy.spawn("mpc next"), desc="next track"),
+    Key([], "XF86AudioPrev", lazy.spawn("mpc next"), desc="previous track"),
 ]
 
 groups = [Group(i) for i in "123456789"]
@@ -100,10 +119,11 @@ for i in groups:
     ])
 
 layouts = [
-    layout.Columns(border_focus_stack=['#d75f5f', '#8f3d3d'], border_width=4),
+    layout.Columns(border_focus_stack=[
+        '#d75f5f', '#8f3d3d'], border_width=4, margin=4),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
-    # layout.Stack(num_stacks=2),
+    layout.Stack(num_stacks=2),
     # layout.Bsp(),
     # layout.Matrix(),
     # layout.MonadTall(),
@@ -124,7 +144,7 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        bottom=bar.Bar(
+        top=bar.Bar(
             [
                 widget.CurrentLayout(),
                 widget.GroupBox(),
@@ -138,9 +158,9 @@ screens = [
                 ),
                 widget.TextBox("default config", name="default"),
                 widget.TextBox("Press &lt;M-r&gt; to spawn",
-                               foreground="#d75f5f"),
+                               foreground=theme_colors['colors']['color2']),
                 widget.Systray(),
-                widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
+                widget.Clock(format='%Y-%m-%d %a %H:%M %p'),
                 widget.QuickExit(),
             ],
             24,
@@ -179,6 +199,12 @@ reconfigure_screens = True
 # If things like steam games want to auto-minimize themselves when losing
 # focus, should we respect this or not?
 auto_minimize = True
+
+
+@hook.subscribe.startup_once
+def start_once():
+    subprocess.Popen([home + '/.config/dot-files/autostart.sh'])
+
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
