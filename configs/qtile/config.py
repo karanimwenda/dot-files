@@ -120,7 +120,11 @@ for i in groups:
 
 layouts = [
     layout.Columns(border_focus_stack=[
-        '#d75f5f', '#8f3d3d'], border_width=4, margin=4),
+        '#d75f5f', '#8f3d3d'],
+        border_width=2, margin=4,
+        border_normal=theme_colors["color0"],
+        border_focus=theme_colors["color5"]
+    ),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
     layout.Stack(num_stacks=2),
@@ -161,8 +165,8 @@ screens = [
                     this_current_screen_border=theme_colors['color5'],
                 ),
                 widget.Prompt(
-                    foreground=theme_colors['color5'],
-                    background=theme_colors['color0'],
+                    foreground=theme_colors['color0'],
+                    background=theme_colors['color5'],
                 ),
                 widget.TaskList(
                     background=theme_colors['color0'],
@@ -190,7 +194,22 @@ screens = [
                     foreground=theme_colors['color5'],
                     background=theme_colors['color0'],
                 ),
-                widget.Volume(),
+                widget.CPU(
+                    background=theme_colors['color5'],
+                    foreground=theme_colors['color0'],
+                ),
+                widget.Memory(
+                    foreground=theme_colors['color5'],
+                    background=theme_colors['color0'],
+                ),
+                widget.Volume(
+                    background=theme_colors['color5'],
+                    foreground=theme_colors['color0'],
+                ),
+                widget.Battery(
+                    foreground=theme_colors['color5'],
+                    background=theme_colors['color0'],
+                ),
                 widget.Clock(
                     format='%Y-%m-%d %a %H:%M %p',
                     foreground=theme_colors['color0'],
@@ -201,7 +220,10 @@ screens = [
                     background=theme_colors['color0'],
                     default_text="log out"
                 ),
-                widget.Systray(),
+                widget.Systray(
+                    foreground=theme_colors['color5'],
+                    background=theme_colors['color0'],
+                ),
             ],
             24,
         ),
