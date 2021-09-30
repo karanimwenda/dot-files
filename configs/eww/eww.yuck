@@ -1,0 +1,149 @@
+(defvar poll-variables false)
+
+(defpoll hour
+      :interval "1s"
+      :initial "--"
+      :run-while poll-variables
+  `date +"%H"`
+)
+
+(defpoll minute
+      :interval "1s"
+      :initial "--"
+      :run-while poll-variables
+  `date +"%M"`
+)
+
+(defpoll light_percentage
+      :interval "5s"
+      :initial "--"
+      :run-while poll-variables
+  `light`
+)
+
+(defpoll ram_used
+      :interval "5s"
+      :initial "--"
+      :run-while poll-variables
+  `free -h | grep -i mem | gawk '{print $3/$2 * 100}'`
+)
+
+(defpoll storage_used
+      :interval "5s"
+      :initial "--"
+      :run-while poll-variables
+  `df  | grep "/dev/sda6" | gawk '{print $3/$2 * 100}'`
+)
+
+(defwidget clock []
+      (box
+          :orientation "horizontal"
+          :halign "center"
+          :class "clock"
+          (box
+            :class "clock-hour"
+            hour
+          )
+          (box
+            :class "clock-minute"
+            minute
+          )
+      )
+)
+
+
+(defwidget resource_usage []
+      (box
+          :orientation "vertical"
+          :halign "center"
+          :class "resource_usage"
+
+          (box
+              :class "ram_used"
+              :space-evenly false
+              (box
+                  :class "label"
+                  "﬙"
+              )
+              (box
+                  :class "progress"
+                  (progress :value ram_used)
+              )
+          )
+
+          (box
+              :class "storage_used"
+              :space-evenly false
+              (box
+                  :class "label"
+                  ""
+              )
+              (box
+                  :class "progress"
+                  (progress :value storage_used)
+              )
+          )
+
+          (box
+              :class "light_percentage"
+              :space-evenly false
+              (box
+                  :class "label"
+                  ""
+              )
+              (box
+                  :class "progress"
+                  (progress :value light_percentage)
+              )
+          )
+
+
+
+      )
+)
+
+
+(defwidget greeter [?text name]
+      (box
+          :orientation "horizontal"
+          :halign "center"
+        text
+        (button
+            :onclick "notify-send 'Hello' 'Hello, ${name}'"
+            "Greet"
+          )
+      )
+)
+
+(defwindow example
+   :monitor 0
+           :geometry (geometry :x "12px"
+                               :y "3%"
+                               :width "330px"
+                               :height "30px"
+                               :anchor "top left")
+           :stacking "bg"
+           :reserve (struts :distance "40px" :side "top")
+           :windowtype "dock"
+           :wm-ignore true
+  (clock)
+)
+(defwindow resource_usage_side
+   :monitor 0
+           :geometry (geometry :x "12px"
+                               :y "185px"
+                               :width "330px"
+                               :height "30px"
+                               :anchor "top left")
+           :stacking "bg"
+           :reserve (struts :distance "40px" :side "top")
+           :windowtype "dock"
+           :wm-ignore true
+  (resource_usage)
+)
+ 
+  ; (greeter
+            ; :text "Say hello!"
+            ; :name "Tim"
+  ; )
+

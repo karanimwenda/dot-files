@@ -34,6 +34,7 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
+Plug 'elkowar/yuck.vim'
 
 " theme plugins
 " Plug 'morhetz/gruvbox'
