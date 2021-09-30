@@ -35,6 +35,23 @@
   `df  | grep "/dev/sda6" | gawk '{print $3/$2 * 100}'`
 )
 
+
+(defpoll playing_artist
+      :interval "5s"
+      :initial "--"
+      :run-while poll-variables
+  `mpc -f 'mpc_cur %artist%' | grep "mpc_cur" | gawk '{$1=""}sub(FS,"")' | cut -c 1-21 | xargs`
+)
+
+
+(defpoll playing_title
+      :interval "5s"
+      :initial "--"
+      :run-while poll-variables
+  `mpc -f 'mpc_cur %title%' | grep "mpc_cur" | gawk '{$1=""}sub(FS,"")' | cut -c 1-21 | xargs`
+)
+
+
 (defwidget clock []
       (box
           :orientation "horizontal"
@@ -57,6 +74,7 @@
           :orientation "vertical"
           :halign "center"
           :class "resource_usage"
+          :space-evenly false
 
           (box
               :class "ram_used"
@@ -97,11 +115,35 @@
               )
           )
 
-
-
       )
 )
 
+
+(defwidget mpd_playing []
+      (box
+          :orientation "horizontal"
+          :halign "center"
+          :class "mpd_playing"
+          :space-evenly false
+          (box
+              :class "label"
+              ""
+          )
+          (box
+              :orientation "vertical"
+              :class "mpd_labels"
+              :space-evenly false
+              (box
+                  :class "title-label"
+                  playing_title
+              )
+              (box
+                  :class "artist-label"
+                  playing_artist
+              )
+          )
+      )
+)
 
 (defwidget greeter [?text name]
       (box
@@ -128,6 +170,7 @@
            :wm-ignore true
   (clock)
 )
+
 (defwindow resource_usage_side
    :monitor 0
            :geometry (geometry :x "12px"
@@ -141,6 +184,22 @@
            :wm-ignore true
   (resource_usage)
 )
+
+
+(defwindow mpd_playing_side
+   :monitor 0
+           :geometry (geometry :x "12px"
+                               :y "352px"
+                               :width "330px"
+                               :height "30px"
+                               :anchor "top left")
+           :stacking "bg"
+           :reserve (struts :distance "40px" :side "top")
+           :windowtype "dock"
+           :wm-ignore true
+  (mpd_playing)
+)
+ 
  
   ; (greeter
             ; :text "Say hello!"
