@@ -157,7 +157,7 @@
       )
 )
 
-(defwindow example
+(defwindow clock_side
    :monitor 0
            :geometry (geometry :x "12px"
                                :y "3%"
@@ -199,8 +199,8 @@
            :wm-ignore true
   (mpd_playing)
 )
- 
- 
+
+
   ; (greeter
             ; :text "Say hello!"
             ; :name "Tim"
