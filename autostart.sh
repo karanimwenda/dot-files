@@ -7,4 +7,10 @@ fix_xcursor &
 nm-applet &  # for networks
 xfce4-power-manager &
 clipit &
-/home/timo/.config/conky/launch.sh
+
+/home/timo/.programs/rice/eww/target/release/eww daemon
+/home/timo/.programs/rice/eww/target/release/eww open clock_side
+/home/timo/.programs/rice/eww/target/release/eww open mpd_playing_side
+/home/timo/.programs/rice/eww/target/release/eww open resource_usage_side
+
+# /home/timo/.config/conky/launch.sh

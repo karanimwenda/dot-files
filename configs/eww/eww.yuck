@@ -25,7 +25,7 @@
       :interval "5s"
       :initial "--"
       :run-while poll-variables
-  `free -h | grep -i mem | gawk '{print $3/$2 * 100}'`
+  `free | grep -i mem | gawk '{print $3/$2 * 100}'`
 )
 
 (defpoll storage_used

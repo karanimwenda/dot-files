@@ -126,6 +126,18 @@ keys = [
         lazy.spawn("pactl set-sink-volume 0 -5%"),
         desc="volume down"
     ),
+
+    Key(
+        [], "XF86MonBrightnessUp",
+        lazy.spawn("light -A 2"),
+        desc="brightness up"
+    ),
+
+    Key(
+        [], "XF86MonBrightnessDown",
+        lazy.spawn("light -U 2"),
+        desc="brightness down"
+    ),
 ]
 
 groups = [Group(i) for i in "123456789"]
@@ -195,9 +207,11 @@ screens = [
                     inactive=theme_colors['color5'],
                     hide_unused=True,
                     background=theme_colors['color0'],
+                    foreground=theme_colors['color0'],
                     highlight_color=theme_colors['color1'],
                     highlight_method="block",
                     this_current_screen_border=theme_colors['color5'],
+                    urgent_border=theme_colors['color1'],
                 ),
                 widget.Prompt(
                     foreground=theme_colors['color0'],
