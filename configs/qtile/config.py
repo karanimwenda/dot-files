@@ -208,6 +208,7 @@ screens = [
                     highlight_method="border",
                     icon_size=0,
                     border=theme_colors['color5'],
+                    urgent_border=theme_colors['color1'],
                     foreground=theme_colors['color5']
                 ),
                 # widget.WindowName(
