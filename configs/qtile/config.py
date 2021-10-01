@@ -104,7 +104,7 @@ keys = [
     # Music bindings
     Key([], "XF86AudioPlay", lazy.spawn("mpc toggle"), desc="play/pause"),
     Key([], "XF86AudioNext", lazy.spawn("mpc next"), desc="next track"),
-    Key([], "XF86AudioPrev", lazy.spawn("mpc next"), desc="previous track"),
+    Key([], "XF86AudioPrev", lazy.spawn("mpc prev"), desc="previous track"),
     Key(
         [], "XF86AudioMute",
         lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle"),
