@@ -36,8 +36,10 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.layout.tree import TreeNode
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
+from libqtile.log_utils import logger
 
-mod = "mod4"
+# mod1 is alt
+mod = "mod4" # windows key
 terminal = guess_terminal()
 home = os.path.expanduser('~')
 
@@ -68,6 +70,8 @@ keys = [
     Key([mod, "shift"], "j", lazy.layout.shuffle_down(),
         desc="Move window down"),
     Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
+    Key([mod], "i",lazy.layout.grow()),
+    Key([mod], "m", lazy.layout.shrink()),
 
     # Grow windows. If current window is on the edge of screen and direction
     # will be to screen edge - window would shrink.
@@ -153,7 +157,7 @@ keys = [
     ),
     Key([mod, "shift"], "i", lazy.spawn(
         "/home/timo/.config/rofi/launchers-git/launcherAlt.sh"), desc="applications menu"),
-    Key([mod, "control"], "l", lazy.spawn(
+    Key([mod, "control", "mod1"], "l", lazy.spawn(
         "i3lock-fancy"), desc="lock screen"),
 
     # Applications
