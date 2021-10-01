@@ -155,6 +155,10 @@ keys = [
         "/home/timo/.config/rofi/launchers-git/launcherAlt.sh"), desc="applications menu"),
     Key([mod, "control"], "l", lazy.spawn(
         "i3lock-fancy"), desc="lock screen"),
+
+    # Applications
+    Key([mod], "F2", lazy.spawn("brave"), desc="brave browser"),
+    Key([mod], "F3", lazy.spawn("pcmanfm"), desc="file browser"),
 ]
 
 groups = [Group(i) for i in "123456789"]
