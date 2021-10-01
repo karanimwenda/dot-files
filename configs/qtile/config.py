@@ -97,9 +97,6 @@ keys = [
     Key([mod], "r", lazy.spawncmd(),
         desc="Spawn a command using a prompt widget"),
 
-    Key([mod, "shift"], "i", lazy.spawn(
-        "/home/timo/.config/rofi/launchers-git/launcherAlt.sh"), desc="applications menu"),
-
     # Music bindings
     Key([], "XF86AudioPlay", lazy.spawn("mpc toggle"), desc="play/pause"),
     Key([], "XF86AudioNext", lazy.spawn("mpc next"), desc="next track"),
@@ -127,17 +124,37 @@ keys = [
         desc="volume down"
     ),
 
+    # Brightness bindings
     Key(
         [], "XF86MonBrightnessUp",
         lazy.spawn("light -A 2"),
         desc="brightness up"
     ),
-
     Key(
         [], "XF86MonBrightnessDown",
         lazy.spawn("light -U 2"),
         desc="brightness down"
     ),
+
+    # Utils
+    Key(
+        [mod, "control"], "g",
+        lazy.spawn("/home/timo/.config/dmenu_scripts/switch_graphics.sh"),
+        desc="switch graphics card"
+    ),
+    Key(
+        [mod], "d",
+        lazy.spawn(
+            "dmenu_recency -nf '{}' -nb '{}' -sb '{}' -sf '{}' -fn 'monospace-9' -p 'run:'".format(
+                theme_colors['color5'], theme_colors['color0'], theme_colors['color5'], theme_colors['color0'],
+            ),
+        ),
+        desc="run dmenu"
+    ),
+    Key([mod, "shift"], "i", lazy.spawn(
+        "/home/timo/.config/rofi/launchers-git/launcherAlt.sh"), desc="applications menu"),
+    Key([mod, "control"], "l", lazy.spawn(
+        "i3lock-fancy"), desc="lock screen"),
 ]
 
 groups = [Group(i) for i in "123456789"]

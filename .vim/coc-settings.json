@@ -1,7 +1,4 @@
 {
-  "python.pythonPath": "python",
-  "python.linting.enabled": false,
-  "python.linting.pylintEnabled": true,
   "languageserver": {
     "clangd": {
       "command": "clangd",
@@ -70,5 +67,7 @@
   ],
   "prettier.bracketSpacing": true,
   "prettier.singleQuote": true,
-  "prettier.tabWidth": 2
+  "prettier.tabWidth": 2,
+  "jedi.startupMessage": true,
+  "jedi.hover.enable": true
 }
