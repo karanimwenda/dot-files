@@ -148,11 +148,42 @@
 (defwidget greeter [?text name]
       (box
           :orientation "horizontal"
-          :halign "center"
+          :halign "start"
+          :space-evenly false
         text
         (button
             :onclick "notify-send 'Hello' 'Hello, ${name}'"
             "Greet"
+          )
+      )
+)
+
+(defwidget calendar []
+      (box
+          :orientation "vertical"
+          :class "calendar"
+          (box
+              :orientation "horizontal"
+              :class "cal-day"
+              :space-evenly false
+
+              (box
+                  :class "cal-progress"
+              )
+       
+              (box
+                  :orientation "vertical"
+                  :space-evenly false
+                  (label
+                    :halign "start"
+                    :text "start"
+                  )
+                  (label
+                    :halign "start"
+                    :text "19:00 - 20:00"
+                  )
+              )
+
           )
       )
 )
@@ -200,6 +231,20 @@
   (mpd_playing)
 )
 
+
+(defwindow calendar_side
+   :monitor 0
+           :geometry (geometry :x "12px"
+                               :y "490px"
+                               :width "330px"
+                               :height "30px"
+                               :anchor "top left")
+           :stacking "bg"
+           :reserve (struts :distance "40px" :side "top")
+           :windowtype "dock"
+           :wm-ignore true
+  (calendar)
+)
 
   ; (greeter
             ; :text "Say hello!"

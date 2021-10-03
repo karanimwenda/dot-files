@@ -9,6 +9,7 @@ tomorrow = tomorrow_date.strftime("%m/%d/%Y")
 print(today, tomorrow)
 
 stream = os.popen(
-    'gcalcli agenda "{}" "{}" --details end'.format(today, tomorrow))
+    'gcalcli agenda "{}" "{}" --details end'.format(today, tomorrow)
+)
 output = stream.read()
 print(output)

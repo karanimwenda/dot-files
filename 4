@@ -13,10 +13,6 @@ $aqua-alt: #8fbcbb;
 $fg1: #e5e9f0;
 $fg1: #eceff4;
 
-.bg-red {
-  background-color: $red;
-}
-
 * {
   all: unset; // Unset everything so I can style from scratch
 }
@@ -143,7 +139,7 @@ progress {
 
 .calendar {
   background-color: $bgcolor;
-  color: $bgcolor;
+  color: $fgcolor;
   padding-top: 20px;
   padding-bottom: 20px;
   padding-left: 30px;
@@ -152,12 +148,7 @@ progress {
 }
 
 .cal-progress {
-  min-width: 5px;
-  border-radius: 2px;
-  background-color: $bgcolor;
-  margin-right: 10px;
-}
-
-.day-details {
-  min-width: 270px;
+  min-width: 20px;
+  border-radius: 5px;
+  background-color: $red;
 }
