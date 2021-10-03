@@ -1,13 +1,7 @@
 import os
 import datetime
 
-yucky_event_template = """
-(cal-event 
-    :details "{{ details }}"
-    :time "{{ time }}"
-)
-"""
-
+# Get day tasks
 today_date = datetime.datetime.now()
 tomorrow_date = today_date + datetime.timedelta(days=1)
 today = today_date.strftime("%m/%d/%Y")
@@ -39,6 +33,10 @@ for task in unprocessed_tasks:
 
 task_code = []
 
+with open("../../configs/eww/widgets/cal-event-template.yuck") as file:
+    yucky_event_template = file.read()
+
+# Create yucky code
 for task in processed_tasks:
     eww_task = yucky_event_template
     eww_task = eww_task.replace("{{ details }}", task["details"])
