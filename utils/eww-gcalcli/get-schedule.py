@@ -55,5 +55,7 @@ yucky_cal_widget = yucky_cal_template.replace("{{ events }}", task_code)
 with open("../../configs/eww/widgets/calendar-widget.yuck", 'w') as file:
     file.write(yucky_cal_widget)
 
+os.system("eww open calendar_side")
+
 print(yucky_cal_widget)
 # print(task_code)
