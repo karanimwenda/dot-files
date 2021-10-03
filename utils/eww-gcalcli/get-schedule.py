@@ -2,7 +2,8 @@ import os
 import datetime
 
 # Get day tasks
-today_date = datetime.datetime.now()
+# today_date = datetime.datetime.now()
+today_date = datetime.datetime(2021, 11, 22)
 tomorrow_date = today_date + datetime.timedelta(days=1)
 today = today_date.strftime("%m/%d/%Y")
 tomorrow = tomorrow_date.strftime("%m/%d/%Y")
@@ -46,10 +47,13 @@ for task in processed_tasks:
     eww_task = eww_task.replace(
         "{{ time }}", "{} - {}".format(task["start_time"], task["end_time"])
     )
-    print(eww_task)
+    # print(eww_task)
     task_code = task_code + "\n" + eww_task
 
-print(output)
-print(unprocessed_tasks)
-print(processed_tasks)
+yucky_cal_widget = yucky_cal_template.replace("{{ events }}", task_code)
+
+with open("../../configs/eww/widgets/calendar-widget.yuck", 'w') as file:
+    file.write(yucky_cal_widget)
+
+print(yucky_cal_widget)
 # print(task_code)

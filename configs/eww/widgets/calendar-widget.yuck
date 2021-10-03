@@ -1,0 +1,14 @@
+(defwidget calendar []
+        (box
+            :orientation "vertical"
+            :valign "center"
+            :class "calendar"
+            :spacing 2
+            
+(cal-event 
+    :details "Marie's birthday"
+    :time "00:00 - 00:00"
+)
+
+        )
+)
