@@ -158,40 +158,38 @@
       )
 )
 
+
+(defvar calendarExpanded false)
+
 (defwidget calendar []
-      (box
-          :orientation "vertical"
-          :class "calendar"
-          (expander
-              :expanded true
-              (box
-                  :orientation "vertical"
-                  (box
-                      :orientation "horizontal"
-                      :class "cal-day"
-                      :space-evenly false
+        (box
+            :orientation "vertical"
+            :valign "center"
+            :class "calendar"
+            (box
+                :orientation "horizontal"
+                :class "cal-day"
+                :space-evenly false
 
-                      (box
-                          :class "cal-progress"
-                      )
+                (box
+                    :class "cal-progress"
+                )
 
-                      (box
-                          :orientation "vertical"
-                          :space-evenly false
-                          (label
-                            :halign "start"
-                            :text "start"
-                          )
-                          (label
-                            :halign "start"
-                            :text "19:00 - 20:00"
-                          )
-                      )
+                (box
+                    :orientation "vertical"
+                    :space-evenly false
+                    (label
+                      :halign "start"
+                      :text "start"
+                    )
+                    (label
+                      :halign "start"
+                      :text "19:00 - 20:00"
+                    )
+                )
 
-                  )
-              )
-          )
-      )
+            )
+        )
 )
 
 (defwindow clock_side
