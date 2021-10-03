@@ -31,10 +31,13 @@ for task in unprocessed_tasks:
     }
     processed_tasks.append(task_dict)
 
-task_code = []
+task_code = ""
 
 with open("../../configs/eww/widgets/cal-event-template.yuck") as file:
     yucky_event_template = file.read()
+
+with open("../../configs/eww/widgets/calendar-template.yuck") as file:
+    yucky_cal_template = file.read()
 
 # Create yucky code
 for task in processed_tasks:
@@ -44,7 +47,7 @@ for task in processed_tasks:
         "{{ time }}", "{} - {}".format(task["start_time"], task["end_time"])
     )
     print(eww_task)
-    task_code.append(eww_task)
+    task_code = task_code + "\n" + eww_task
 
 print(output)
 print(unprocessed_tasks)
