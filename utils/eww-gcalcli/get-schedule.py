@@ -2,8 +2,8 @@ import os
 import datetime
 
 # Get day tasks
-# today_date = datetime.datetime.now()
-today_date = datetime.datetime(2021, 11, 22)
+today_date = datetime.datetime.now()
+# today_date = datetime.datetime(2021, 11, 22)
 tomorrow_date = today_date + datetime.timedelta(days=1)
 today = today_date.strftime("%m/%d/%Y")
 tomorrow = tomorrow_date.strftime("%m/%d/%Y")
