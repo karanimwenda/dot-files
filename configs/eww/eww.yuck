@@ -159,36 +159,47 @@
 )
 
 
-(defvar calendarExpanded false)
+(defwidget cal-event [details time]
+     (box
+        :orientation "horizontal"
+        :class "cal-day"
+        :space-evenly false
+
+        (box
+            :class "cal-progress"
+        )
+
+        (box
+            :orientation "vertical"
+            :space-evenly false
+            (label
+              :halign "start"
+              :text details
+            )
+            (label
+              :halign "start"
+              :text time
+            )
+        )
+
+    )
+)
 
 (defwidget calendar []
         (box
             :orientation "vertical"
             :valign "center"
             :class "calendar"
-            (box
-                :orientation "horizontal"
-                :class "cal-day"
-                :space-evenly false
+            :spacing 2
+          (cal-event
+    :details "dev a c3n7ly project"
+    :time "22:00 - 00:00"
+)
 
-                (box
-                    :class "cal-progress"
-                )
-
-                (box
-                    :orientation "vertical"
-                    :space-evenly false
-                    (label
-                      :halign "start"
-                      :text "start"
-                    )
-                    (label
-                      :halign "start"
-                      :text "19:00 - 20:00"
-                    )
-                )
-
-            )
+          (cal-event
+    :details "code a game"
+    :time "19:00 - 21:00"
+)
         )
 )
 
