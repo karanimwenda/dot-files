@@ -131,24 +131,23 @@ progress {
   // color: $blue;
 }
 
+.calendar {
+  background-color: $bgcolor;
+  color: $bgcolor;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
 .cal-day {
   border-radius: 15px;
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
   background-color: $green;
   padding: 10px;
-  min-width: 290px;
+  min-width: 295px;
   margin: 2px;
-}
-
-.calendar {
-  background-color: $bgcolor;
-  color: $bgcolor;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 30px;
-  padding-right: 30px;
-  min-width: 318px;
 }
 
 .cal-progress {
@@ -156,8 +155,4 @@ progress {
   border-radius: 2px;
   background-color: $bgcolor;
   margin-right: 10px;
-}
-
-.day-details {
-  min-width: 270px;
 }

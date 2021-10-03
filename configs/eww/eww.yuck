@@ -162,28 +162,34 @@
       (box
           :orientation "vertical"
           :class "calendar"
-          (box
-              :orientation "horizontal"
-              :class "cal-day"
-              :space-evenly false
-
-              (box
-                  :class "cal-progress"
-              )
-       
+          (expander
+              :expanded true
               (box
                   :orientation "vertical"
-                  :space-evenly false
-                  (label
-                    :halign "start"
-                    :text "start"
-                  )
-                  (label
-                    :halign "start"
-                    :text "19:00 - 20:00"
+                  (box
+                      :orientation "horizontal"
+                      :class "cal-day"
+                      :space-evenly false
+
+                      (box
+                          :class "cal-progress"
+                      )
+
+                      (box
+                          :orientation "vertical"
+                          :space-evenly false
+                          (label
+                            :halign "start"
+                            :text "start"
+                          )
+                          (label
+                            :halign "start"
+                            :text "19:00 - 20:00"
+                          )
+                      )
+
                   )
               )
-
           )
       )
 )
