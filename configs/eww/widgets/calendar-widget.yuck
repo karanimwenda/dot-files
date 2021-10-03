@@ -6,8 +6,13 @@
             :spacing 2
             
 (cal-event 
-    :details "Marie's birthday"
-    :time "00:00 - 00:00"
+    :details "code a game"
+    :time "19:00 - 21:00"
+)
+
+(cal-event 
+    :details "dev a c3n7ly project"
+    :time "22:00 - 00:00"
 )
 
         )
