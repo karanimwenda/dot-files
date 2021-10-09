@@ -226,7 +226,12 @@ screens = [
                     "c3n7",
                     foreground=theme_colors['color0'],
                     background=theme_colors['color5'],
-                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn("jgmenu --at-pointer")}
+                    mouse_callbacks={
+                        'Button1': lambda: qtile.cmd_spawn("jgmenu --at-pointer"),
+                        "Button3": lambda: qtile.cmd_spawn(
+                            "/home/timo/.config/rofi/launchers-git/launcherAlt.sh"
+                        ),
+                    }
                     #  mouse_callbacks={'Button1': lambda: logger.warning('brave')}
                 ),
                 widget.GroupBox(
