@@ -31,7 +31,7 @@ import subprocess
 
 import json
 
-from libqtile import bar, layout, widget, hook
+from libqtile import bar, layout, widget, hook, qtile
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.layout.tree import TreeNode
 from libqtile.lazy import lazy
@@ -217,6 +217,7 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+
 screens = [
     Screen(
         top=bar.Bar(
@@ -224,7 +225,9 @@ screens = [
                 widget.TextBox(
                     "c3n7",
                     foreground=theme_colors['color0'],
-                    background=theme_colors['color5']
+                    background=theme_colors['color5'],
+                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn("jgmenu --at-pointer")}
+                    #  mouse_callbacks={'Button1': lambda: logger.warning('brave')}
                 ),
                 widget.GroupBox(
                     active=theme_colors['color5'],
