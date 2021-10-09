@@ -52,6 +52,7 @@
     "graphql",
     "html",
     "htmldjango",
+    "blade",
     "dart",
     "go",
     "java",
@@ -68,6 +69,9 @@
   "prettier.bracketSpacing": true,
   "prettier.singleQuote": true,
   "prettier.tabWidth": 2,
+  "prettier.printWidth": 60,
+  "prettier.proseWrap": "always",
+  "html.format.wrapLineLength": 60,
   "jedi.startupMessage": true,
   "jedi.hover.enable": true
 }

@@ -35,6 +35,7 @@ Plug 'OmniSharp/omnisharp-vim'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'elkowar/yuck.vim'
+Plug 'jwalton512/vim-blade'
 
 " theme plugins
 " Plug 'morhetz/gruvbox'

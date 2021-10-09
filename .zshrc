@@ -31,6 +31,7 @@ path+=("/home/timo/.config/composer/vendor/bin")
 path+=('/home/timo/.programs/rice/eww/target/release')
 path+=('/home/timo/.dotnet/tools')
 path+=('/home/timo/.programs/gdx-setup')
+path+=('/home/timo/.emacs.d/bin')
 # Add vulkan to path
 path=($VULKAN_SDK $path)
 export PATH

@@ -39,7 +39,7 @@ from libqtile.utils import guess_terminal
 from libqtile.log_utils import logger
 
 # mod1 is alt
-mod = "mod4" # windows key
+mod = "mod4"  # windows key
 terminal = guess_terminal()
 home = os.path.expanduser('~')
 
@@ -57,7 +57,7 @@ keys = [
     Key([mod], "space", lazy.layout.next(),
         desc="Move window focus to other window"),
     Key([mod, "control"], "m", lazy.window.toggle_maximize(), desc="Maximize window"),
-    Key([mod, "shift"], "m", lazy.window.toggle_minimize(), desc="Minimize window"),
+    Key([mod, "control"], "n", lazy.window.toggle_minimize(), desc="Minimize window"),
     Key([mod, "control"], "space",
         lazy.window.toggle_floating(), desc="Minimize window"),
 
@@ -70,7 +70,7 @@ keys = [
     Key([mod, "shift"], "j", lazy.layout.shuffle_down(),
         desc="Move window down"),
     Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
-    Key([mod], "i",lazy.layout.grow()),
+    Key([mod], "i", lazy.layout.grow()),
     Key([mod], "m", lazy.layout.shrink()),
 
     # Grow windows. If current window is on the edge of screen and direction
@@ -286,7 +286,7 @@ screens = [
                     background=theme_colors['color0'],
                 ),
                 widget.Clock(
-                    format='%Y-%m-%d %a %H:%M %p',
+                    format='%b %d(%a), %Y %H:%M',
                     foreground=theme_colors['color0'],
                     background=theme_colors['color5'],
                 ),
