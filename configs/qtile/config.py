@@ -48,7 +48,16 @@ with open(home + '/.config/dot-files/colors/edge-neon.json') as file:
 
 theme_colors = json.loads(theme_colors)
 
+
+def show_notification(title, body, ms_time):
+    notification_cmd = 'notify-send "{}" "{}" -t {}'.format(
+        title, body, ms_time
+    )
+    return notification_cmd
+
+
 keys = [
+    # https://github.com/qtile/qtile/blob/master/libqtile/backend/x11/xkeysyms.py
     # Switch between windows
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
@@ -159,6 +168,34 @@ keys = [
         "/home/timo/.config/rofi/launchers-git/launcherAlt.sh"), desc="applications menu"),
     Key([mod, "control", "mod1"], "l", lazy.spawn(
         "i3lock-fancy"), desc="lock screen"),
+    # Screenshots
+    Key([mod], "Print",
+        lazy.spawn(
+            "scrot --focused -q 100 -e 'mv $f /home/timo/Pictures/'"),
+        lazy.spawn(show_notification(
+            "Window screenshot saved", "Screenshot saved in ~/Pictures", 5000
+        )
+    ),
+        desc="focused window screenshot"
+    ),
+    Key([mod, "shift"], "Print",
+        lazy.spawn(
+        "scrot --select -q 100 -e 'mv $f /home/timo/Pictures/'"),
+        lazy.spawn(show_notification(
+            "Select area to screenshot", "Screenshot saved in ~/Pictures", 5000
+        )
+    ),
+        desc="draw screenshot area"
+    ),
+    Key([], "Print",
+        lazy.spawn(
+        "scrot -q 100 -e 'mv $f /home/timo/Pictures/'"),
+        lazy.spawn(show_notification(
+            "Screenshot saved", "Screenshot saved in ~/Pictures", 5000
+        )
+    ),
+        desc="fullscreen screenshot"
+    ),
 
     # Applications
     Key([mod], "F2", lazy.spawn("brave"), desc="brave browser"),
@@ -217,13 +254,16 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+
 def refresh_ewwcalendar():
     logger.warning('refreshing calendar')
     #  qtile.cmd_spawn('python ' + home +'/.config/dot-files/utils/eww-gcalcli/get-schedule.py')
     #  stream = os.popen('python ' + home +'/.config/dot-files/utils/eww-gcalcli/get-schedule.py')
     #  output = stream.read()
     #  logger.warning(output)
-    qtile.cmd_spawn('python ' + home +'/.config/dot-files/utils/eww-gcalcli/get-schedule.py')
+    qtile.cmd_spawn('python ' + home +
+                    '/.config/dot-files/utils/eww-gcalcli/get-schedule.py')
+
 
 screens = [
     Screen(
@@ -304,7 +344,7 @@ screens = [
                     format='%b %d(%a), %Y %H:%M',
                     foreground=theme_colors['color0'],
                     background=theme_colors['color5'],
-                    mouse_callbacks={'Button1': refresh_ewwcalendar }
+                    mouse_callbacks={'Button1': refresh_ewwcalendar}
                 ),
                 widget.QuickExit(
                     foreground=theme_colors['color5'],
