@@ -3,7 +3,7 @@ import datetime
 
 # Get day tasks
 today_date = datetime.datetime.now()
-# today_date = datetime.datetime(2021, 11, 22)
+#  today_date = datetime.datetime(2021, 11, 22)
 tomorrow_date = today_date + datetime.timedelta(days=1)
 today = today_date.strftime("%m/%d/%Y")
 tomorrow = tomorrow_date.strftime("%m/%d/%Y")
@@ -34,10 +34,14 @@ for task in unprocessed_tasks:
 
 task_code = ""
 
-with open("../../configs/eww/widgets/cal-event-template.yuck") as file:
+home = os.path.expanduser('~')
+config_path = home + '/.config/dot-files/configs'
+eww_path = home + '/.programs/rice/eww/target/release/eww'
+
+with open(config_path + "/eww/widgets/cal-event-template.yuck") as file:
     yucky_event_template = file.read()
 
-with open("../../configs/eww/widgets/calendar-template.yuck") as file:
+with open(config_path + "/eww/widgets/calendar-template.yuck") as file:
     yucky_cal_template = file.read()
 
 # Create yucky code
@@ -52,10 +56,10 @@ for task in processed_tasks:
 
 yucky_cal_widget = yucky_cal_template.replace("{{ events }}", task_code)
 
-with open("../../configs/eww/widgets/calendar-widget.yuck", 'w') as file:
+with open(config_path+"/eww/widgets/calendar-widget.yuck", 'w') as file:
     file.write(yucky_cal_widget)
 
-os.system("eww open calendar_side")
+os.popen(eww_path + " open calendar_side")
 
 print(yucky_cal_widget)
 # print(task_code)

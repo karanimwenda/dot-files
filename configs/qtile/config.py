@@ -217,6 +217,13 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+def refresh_ewwcalendar():
+    logger.warning('refreshing calendar')
+    #  qtile.cmd_spawn('python ' + home +'/.config/dot-files/utils/eww-gcalcli/get-schedule.py')
+    #  stream = os.popen('python ' + home +'/.config/dot-files/utils/eww-gcalcli/get-schedule.py')
+    #  output = stream.read()
+    #  logger.warning(output)
+    qtile.cmd_spawn('python ' + home +'/.config/dot-files/utils/eww-gcalcli/get-schedule.py')
 
 screens = [
     Screen(
@@ -297,6 +304,7 @@ screens = [
                     format='%b %d(%a), %Y %H:%M',
                     foreground=theme_colors['color0'],
                     background=theme_colors['color5'],
+                    mouse_callbacks={'Button1': refresh_ewwcalendar }
                 ),
                 widget.QuickExit(
                     foreground=theme_colors['color5'],
