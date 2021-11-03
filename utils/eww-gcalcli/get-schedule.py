@@ -47,7 +47,7 @@ with open(config_path + "/eww/widgets/calendar-template.yuck") as file:
 # Create yucky code
 for task in processed_tasks:
     eww_task = yucky_event_template
-    eww_task = eww_task.replace("{{ details }}", task["details"])
+    eww_task = eww_task.replace("{{ details }}", task["details"][:40])
     eww_task = eww_task.replace(
         "{{ time }}", "{} - {}".format(task["start_time"], task["end_time"])
     )
