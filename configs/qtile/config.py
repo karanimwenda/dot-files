@@ -24,6 +24,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+import re
 from typing import List  # noqa: F401
 
 import os
@@ -336,6 +337,17 @@ screens = [
                     background=theme_colors['color5'],
                     foreground=theme_colors['color0'],
                 ),
+                widget.Backlight(
+                    backlight_name='intel_backlight',
+                    background=theme_colors['color0'],
+                    foreground=theme_colors['color5'],
+                    format=' {percent:2.0%}'
+                ),
+                widget.Net(
+                    foreground=theme_colors['color0'],
+                    background=theme_colors['color5'],
+                    format='{down} ↓↑ {up}'
+                ),
                 widget.Battery(
                     foreground=theme_colors['color5'],
                     background=theme_colors['color0'],
@@ -383,7 +395,6 @@ floating_layout = layout.Floating(float_rules=[
     Match(wm_class='maketag'),  # gitk
     Match(wm_class='ssh-askpass'),  # ssh-askpass
     Match(wm_class='pavucontrol'),  # ssh-askpass
-    Match(title='branchdialog'),  # gitk
     Match(title='pinentry'),  # GPG key password entry
 ], **shared_layout_options)
 auto_fullscreen = True

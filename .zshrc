@@ -165,6 +165,8 @@ alias nv='neovide > /dev/null & ; disown %1 '
 
 alias icat="kitty +kitten icat"
 
+alias kill_android="killall /home/timo/.programs/android-studio/jre/bin/java"
+
 alias gpp='git pull && git push'
 alias gppu="git pull upstream main && git push upstream main"
 alias gpb="git pull && git push && git pull upstream main && git push upstream main"

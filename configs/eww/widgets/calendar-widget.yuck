@@ -6,28 +6,23 @@
             :spacing 2
             
 (cal-event 
-    :details "Huduma Day"
-    :time "00:00 - 00:00"
-)
-
-(cal-event 
-    :details "Utamaduni Day"
+    :details "Diwali"
     :time "00:00 - 00:00"
 )
 
 (cal-event 
     :details "code a game"
-    :time "13:00 - 15:00"
+    :time "09:00 - 11:00"
 )
 
 (cal-event 
-    :details "build art skills"
-    :time "17:00 - 19:00"
+    :details "Crowdcast: Call for Code: Honoring Everyday Heroes Challenge — Use IBM Cloud/Watson AI"
+    :time "19:00 - 20:00"
 )
 
 (cal-event 
     :details "dev a c3n7ly project"
-    :time "19:00 - 21:00"
+    :time "20:00 - 22:00"
 )
 
         )
