@@ -41,8 +41,8 @@ Plug 'jwalton512/vim-blade'
 " Plug 'morhetz/gruvbox'
 " Plug 'arcticicestudio/nord-vim'
 " Plug 'joshdick/onedark.vim'
-" Plug 'sainnhe/sonokai'
-Plug 'sainnhe/edge'
+Plug 'sainnhe/sonokai'
+" Plug 'sainnhe/edge'
 
 " Initialize plugin system
 call plug#end()
@@ -86,15 +86,15 @@ endif
 " }}}
 
 " sonokai {{{
-" let g:sonokai_style = 'andromeda'
-" colorscheme sonokai
-" let g:airline_theme = 'sonokai'
+let g:sonokai_style = 'andromeda'
+colorscheme sonokai
+let g:airline_theme = 'sonokai'
 " }}}
 
 " edge theme {{{
-let g:edge_style = 'neon'
-colorscheme edge
-let g:airline_theme = 'edge'
+" let g:edge_style = 'neon'
+" colorscheme edge
+" let g:airline_theme = 'edge'
 " }}}
 
 " Use gruvbox theme {{{

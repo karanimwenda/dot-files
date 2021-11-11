@@ -7,6 +7,7 @@ fix_xcursor &
 nm-applet &  # for networks
 xfce4-power-manager &
 clipit &
+optimus-manager-qt &
 
 /home/timo/.programs/rice/eww/target/release/eww daemon
 /home/timo/.programs/rice/eww/target/release/eww open clock_side

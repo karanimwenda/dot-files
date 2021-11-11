@@ -44,7 +44,7 @@ mod = "mod4"  # windows key
 terminal = guess_terminal()
 home = os.path.expanduser('~')
 
-with open(home + '/.config/dot-files/colors/edge-neon.json') as file:
+with open(home + '/.config/dot-files/colors/sonokai-andromeda.json') as file:
     theme_colors = file.read()
 
 theme_colors = json.loads(theme_colors)
@@ -160,7 +160,7 @@ keys = [
         [mod], "d",
         lazy.spawn(
             "dmenu_recency -nf '{}' -nb '{}' -sb '{}' -sf '{}' -fn 'monospace-9' -p 'run:'".format(
-                theme_colors['color5'], theme_colors['color0'], theme_colors['color5'], theme_colors['color0'],
+                theme_colors['color5'], theme_colors['background'], theme_colors['color5'], theme_colors['background'],
             ),
         ),
         desc="run dmenu"
@@ -223,7 +223,7 @@ for i in groups:
 shared_layout_options = {
     "border_width": 2,
     "margin": 4,
-    "border_normal": theme_colors["color0"],
+    "border_normal": theme_colors["background"],
     "border_focus": theme_colors["color5"]
 }
 
@@ -272,8 +272,8 @@ screens = [
             [
                 widget.TextBox(
                     "c3n7",
-                    foreground=theme_colors['color0'],
-                    background=theme_colors['color5'],
+                    foreground=theme_colors['background'],
+                    background=theme_colors['color1'],
                     mouse_callbacks={
                         'Button1': lambda: qtile.cmd_spawn("jgmenu --at-pointer"),
                         "Button3": lambda: qtile.cmd_spawn(
@@ -283,31 +283,31 @@ screens = [
                     #  mouse_callbacks={'Button1': lambda: logger.warning('brave')}
                 ),
                 widget.GroupBox(
-                    active=theme_colors['color5'],
-                    block_highlight_text_color=theme_colors['color0'],
-                    inactive=theme_colors['color5'],
+                    active=theme_colors['color2'],
+                    block_highlight_text_color=theme_colors['background'],
+                    inactive=theme_colors['color2'],
                     hide_unused=True,
-                    background=theme_colors['color0'],
-                    foreground=theme_colors['color0'],
+                    background=theme_colors['background'],
+                    foreground=theme_colors['background'],
                     highlight_color=theme_colors['color1'],
                     highlight_method="block",
-                    this_current_screen_border=theme_colors['color5'],
+                    this_current_screen_border=theme_colors['color2'],
                     urgent_border=theme_colors['color1'],
                 ),
                 widget.Prompt(
-                    foreground=theme_colors['color0'],
-                    background=theme_colors['color5'],
+                    foreground=theme_colors['background'],
+                    background=theme_colors['color14'],
                 ),
                 widget.TaskList(
-                    background=theme_colors['color0'],
+                    background=theme_colors['background'],
                     highlight_method="border",
                     icon_size=0,
-                    border=theme_colors['color5'],
+                    border=theme_colors['color14'],
                     urgent_border=theme_colors['color1'],
-                    foreground=theme_colors['color5']
+                    foreground=theme_colors['color14']
                 ),
                 # widget.WindowName(
-                #     background=theme_colors['color0'],
+                #     background=theme_colors['background'],
                 #     foreground=theme_colors['color5'],
                 # ),
                 # widget.Chord(
@@ -318,54 +318,54 @@ screens = [
                 # ),
                 # widget.TextBox("default config", name="default"),
                 widget.Mpd2(
-                    foreground=theme_colors['color0'],
-                    background=theme_colors['color5'],
+                    foreground=theme_colors['background'],
+                    background=theme_colors['color14'],
                 ),
                 widget.CurrentLayout(
-                    foreground=theme_colors['color5'],
-                    background=theme_colors['color0'],
+                    foreground=theme_colors['color2'],
+                    background=theme_colors['background'],
                 ),
                 widget.CPU(
-                    background=theme_colors['color5'],
-                    foreground=theme_colors['color0'],
+                    background=theme_colors['color2'],
+                    foreground=theme_colors['background'],
                 ),
                 widget.Memory(
-                    foreground=theme_colors['color5'],
-                    background=theme_colors['color0'],
+                    foreground=theme_colors['color1'],
+                    background=theme_colors['background'],
                 ),
                 widget.Volume(
-                    background=theme_colors['color5'],
-                    foreground=theme_colors['color0'],
+                    background=theme_colors['color1'],
+                    foreground=theme_colors['background'],
                 ),
                 widget.Backlight(
                     backlight_name='intel_backlight',
-                    background=theme_colors['color0'],
-                    foreground=theme_colors['color5'],
+                    background=theme_colors['background'],
+                    foreground=theme_colors['color4'],
                     format=' {percent:2.0%}'
                 ),
                 widget.Net(
-                    foreground=theme_colors['color0'],
-                    background=theme_colors['color5'],
+                    foreground=theme_colors['background'],
+                    background=theme_colors['color4'],
                     format='{down} ↓↑ {up}'
                 ),
                 widget.Battery(
-                    foreground=theme_colors['color5'],
-                    background=theme_colors['color0'],
+                    foreground=theme_colors['color11'],
+                    background=theme_colors['background'],
                 ),
                 widget.Clock(
                     format='%b %d(%a), %Y %H:%M',
-                    foreground=theme_colors['color0'],
-                    background=theme_colors['color5'],
+                    foreground=theme_colors['background'],
+                    background=theme_colors['color11'],
                     mouse_callbacks={'Button1': refresh_ewwcalendar}
                 ),
                 widget.QuickExit(
-                    foreground=theme_colors['color5'],
-                    background=theme_colors['color0'],
+                    foreground=theme_colors['foreground'],
+                    background=theme_colors['background'],
                     default_text="log out"
                 ),
                 widget.Systray(
-                    foreground=theme_colors['color5'],
-                    background=theme_colors['color0'],
+                    foreground=theme_colors['foreground'],
+                    background=theme_colors['background'],
                 ),
             ],
             24,
@@ -396,6 +396,7 @@ floating_layout = layout.Floating(float_rules=[
     Match(wm_class='ssh-askpass'),  # ssh-askpass
     Match(wm_class='pavucontrol'),  # ssh-askpass
     Match(title='pinentry'),  # GPG key password entry
+    Match(wm_class='Kunst'),  # GPG key password entry
 ], **shared_layout_options)
 auto_fullscreen = True
 focus_on_window_activation = "smart"

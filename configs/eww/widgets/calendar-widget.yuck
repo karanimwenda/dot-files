@@ -5,25 +5,5 @@
             :class "calendar"
             :spacing 2
             
-(cal-event 
-    :details "Diwali"
-    :time "00:00 - 00:00"
-)
-
-(cal-event 
-    :details "code a game"
-    :time "09:00 - 11:00"
-)
-
-(cal-event 
-    :details "Crowdcast: Call for Code: Honoring Every"
-    :time "19:00 - 20:00"
-)
-
-(cal-event 
-    :details "dev a c3n7ly project"
-    :time "20:00 - 22:00"
-)
-
         )
 )
