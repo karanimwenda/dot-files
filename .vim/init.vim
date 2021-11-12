@@ -36,6 +36,7 @@ Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'elkowar/yuck.vim'
 Plug 'jwalton512/vim-blade'
+Plug 'Chiel92/vim-autoformat'
 
 " theme plugins
 " Plug 'morhetz/gruvbox'
@@ -119,6 +120,8 @@ set relativenumber
 " Make the status line visible
 set laststatus=2
 set guifont=Hasklug\ Nerd\ Font:11
+
+au BufWrite *.py :Autoformat
 
 packadd termdebug
 " }}}

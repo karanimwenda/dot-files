@@ -5,5 +5,15 @@
             :class "calendar"
             :spacing 2
             
+(cal-event 
+    :details "make music"
+    :time "09:00 - 11:00"
+)
+
+(cal-event 
+    :details "dev a c3n7ly project"
+    :time "19:00 - 21:00"
+)
+
         )
 )

@@ -1,5 +1,6 @@
 #!/bin/bash
-wal -R &
+# wal -R &
+nitrogen --restore &
 picom &
 mpd &
 fix_xcursor &
