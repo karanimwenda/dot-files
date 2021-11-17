@@ -36,8 +36,11 @@ Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'elkowar/yuck.vim'
 Plug 'jwalton512/vim-blade'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+
 Plug 'nvim-lua/plenary.nvim'
 Plug 'folke/todo-comments.nvim'
+
 " Plug 'Chiel92/vim-autoformat'
 
 " theme plugins
@@ -242,9 +245,10 @@ let g:ale_pattern_options = {
 \ '\.php$': {'ale_linters': [], 'ale_fixers': []},
 \}
 
+" \   'python': ['black', 'isort', 'autopep8'],
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'python': ['black', 'isort'],
+\   'python': ['autopep8', 'isort'],
 \}
 
 let g:ale_linters = {
