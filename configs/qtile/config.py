@@ -268,12 +268,15 @@ layouts = [
         **shared_layout_options
     ),
     layout.Max(**shared_layout_options),
+    #  layout.Slice(**shared_layout_options,
+    #  fallback=layout.MonadWide(**shared_layout_options),
+    #  width=512),
+    layout.MonadWide(**shared_layout_options),
+    layout.MonadTall(**shared_layout_options),
     # Try more layouts by unleashing below layouts.
     layout.Stack(num_stacks=2),
     layout.Bsp(**shared_layout_options),
     layout.Matrix(**shared_layout_options),
-    layout.MonadTall(**shared_layout_options),
-    layout.MonadWide(**shared_layout_options),
     layout.RatioTile(**shared_layout_options),
     layout.Tile(**shared_layout_options),
     layout.TreeTab(**shared_layout_options),
