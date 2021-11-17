@@ -36,7 +36,9 @@ Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'elkowar/yuck.vim'
 Plug 'jwalton512/vim-blade'
-Plug 'Chiel92/vim-autoformat'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'folke/todo-comments.nvim'
+" Plug 'Chiel92/vim-autoformat'
 
 " theme plugins
 " Plug 'morhetz/gruvbox'
@@ -121,9 +123,13 @@ set relativenumber
 set laststatus=2
 set guifont=Hasklug\ Nerd\ Font:11
 
-au BufWrite *.py :Autoformat
-
 packadd termdebug
+" }}}
+
+" files to format on save {{{
+" au BufWrite *.py :Autoformat
+" au BufWrite *.c :Autoformat
+" au BufWrite *.cpp :Autoformat
 " }}}
 
 " custom styling {{{
@@ -225,7 +231,7 @@ nmap <leader>fm :Format<cr>
 
 " ale {{{
 
-let g:ale_echo_msg_format = '%linter%: %s'
+let g:ale_echo_msg_format = '[%linter%]: %s  [%severity%]'
 
 " Do not lint or fix c++ files.
 let g:ale_pattern_options = {
@@ -236,13 +242,34 @@ let g:ale_pattern_options = {
 \ '\.php$': {'ale_linters': [], 'ale_fixers': []},
 \}
 
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'python': ['black', 'isort'],
+\}
+
 let g:ale_linters = {
-\   'c': [], 'cpp': [], 'rust': [], 'go': [], 'python': [], 'sh': [],
+\   'c': [], 'cpp': [], 'rust': [], 'go': [], 'python': ['flake8'], 'sh': [],
 \   'html': [], 'css': [], 'javascript': [], 'typescript': [], 'reason': [],
 \   'json': [], 'vue': [],
 \   'tex': [], 'latex': [], 'bib': [], 'bibtex': [],
 \   'cs':['OmniSharp']
 \ }
+
+" Set this variable to 1 to fix files when you save them.
+let g:ale_fix_on_save = 1
+
+" }}}
+
+"  todo commenter {{{
+lua << EOF
+  require("todo-comments").setup {
+    -- your configuration comes here
+    -- or leave it empty to use the default settings
+    -- refer to the configuration section below
+  }
+EOF
+
+nmap <leader>tl :TodoQuickFix<cr>
 " }}}
 
 " coc.nvim {{{
