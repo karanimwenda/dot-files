@@ -37,6 +37,7 @@ Plug 'rbgrouleff/bclose.vim'
 Plug 'elkowar/yuck.vim'
 Plug 'jwalton512/vim-blade'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+Plug 'mlr-msft/vim-loves-dafny', {'for': 'dafny'}
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'folke/todo-comments.nvim'
@@ -237,8 +238,8 @@ nmap <leader>fm :Format<cr>
 let g:ale_echo_msg_format = '[%linter%]: %s  [%severity%]'
 
 " Do not lint or fix c++ files.
+" \ '\.cpp$': {'ale_linters': [], 'ale_fixers': []},
 let g:ale_pattern_options = {
-\ '\.cpp$': {'ale_linters': [], 'ale_fixers': []},
 \ '\.cc$': {'ale_linters': [], 'ale_fixers': []},
 \ '\.h$': {'ale_linters': [], 'ale_fixers': []},
 \ '\.java$': {'ale_linters': [], 'ale_fixers': []},
@@ -249,6 +250,8 @@ let g:ale_pattern_options = {
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'python': ['autopep8', 'isort'],
+\   'cpp': ['clang-format', 'clangtidy'],
+\   'cs': ['uncrustify', 'dotnet-format'],
 \}
 
 let g:ale_linters = {
