@@ -234,7 +234,7 @@
 (defwindow calendar_side
    :monitor 0
            :geometry (geometry :x "12px"
-                               :y "490px"
+                               :y "515px"
                                :width "330px"
                                :height "30px"
                                :anchor "top left")
