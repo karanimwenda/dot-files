@@ -38,6 +38,7 @@ Plug 'elkowar/yuck.vim'
 Plug 'jwalton512/vim-blade'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'mlr-msft/vim-loves-dafny', {'for': 'dafny'}
+Plug 'StanAngeloff/php.vim'
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'folke/todo-comments.nvim'

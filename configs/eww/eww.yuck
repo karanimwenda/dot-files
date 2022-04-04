@@ -204,7 +204,7 @@
 (defwindow resource_usage_side
    :monitor 0
            :geometry (geometry :x "12px"
-                               :y "185px"
+                               :y "205px"
                                :width "330px"
                                :height "30px"
                                :anchor "top left")
@@ -219,7 +219,7 @@
 (defwindow mpd_playing_side
    :monitor 0
            :geometry (geometry :x "12px"
-                               :y "352px"
+                               :y "372px"
                                :width "330px"
                                :height "30px"
                                :anchor "top left")
@@ -249,4 +249,3 @@
             ; :text "Say hello!"
             ; :name "Tim"
   ; )
-
