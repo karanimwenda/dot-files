@@ -159,13 +159,15 @@ alias ls='lsd'
 alias l='ls -a'
 alias la='ls -a'
 alias lla='ls -la'
-alias lt='ls --tree'
+# alias lt='ls --tree'
 
 alias nv='neovide > /dev/null & ; disown %1 '
 
 alias icat="kitty +kitten icat"
 
 alias kill_android="killall /home/timo/.programs/android-studio/jre/bin/java"
+
+alias composer7='php7 /usr/bin/composer'
 
 alias gpp='git pull && git push'
 alias gppu="git pull upstream main && git push upstream main"

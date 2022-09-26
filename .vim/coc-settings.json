@@ -63,15 +63,16 @@
     "xml",
     "python",
     "scss",
-    "vue",
-    "c#"
+    "vue"
   ],
   "prettier.bracketSpacing": true,
-  "prettier.singleQuote": true,
+  "prettier.singleQuote": false,
   "prettier.tabWidth": 2,
-  "prettier.printWidth": 60,
+  "prettier.printWidth": 80,
   "prettier.proseWrap": "always",
   "html.format.wrapLineLength": 60,
   "jedi.startupMessage": true,
-  "jedi.hover.enable": true
+  "jedi.hover.enable": true,
+  "blade.bladeFormatter.optIndentSize": 2,
+  "intelephense.diagnostics.undefinedMethods": false
 }

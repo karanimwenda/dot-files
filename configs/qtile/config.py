@@ -38,10 +38,11 @@ from libqtile.utils import guess_terminal
 
 # mod1 is alt
 mod = "mod4"  # windows key
-terminal = guess_terminal()
+terminal = "kitty"
+#  terminal = guess_terminal()
 home = os.path.expanduser("~")
 
-with open(home + "/.config/dot-files/colors/sonokai-andromeda.json") as file:
+with open(home + "/.config/dot-files/colors/gruvbox.json") as file:
     theme_colors = file.read()
 
 theme_colors = json.loads(theme_colors)
@@ -307,7 +308,7 @@ screens = [
                 widget.TextBox(
                     "c3n7",
                     foreground=theme_colors["background"],
-                    background=theme_colors["color1"],
+                    background=theme_colors["color4"],
                     mouse_callbacks={
                         "Button1":
                         lambda: qtile.cmd_spawn("jgmenu --at-pointer"),
@@ -368,11 +369,11 @@ screens = [
                     foreground=theme_colors["background"],
                 ),
                 widget.Memory(
-                    foreground=theme_colors["color1"],
+                    foreground=theme_colors["color5"],
                     background=theme_colors["background"],
                 ),
                 widget.Volume(
-                    background=theme_colors["color1"],
+                    background=theme_colors["color5"],
                     foreground=theme_colors["background"],
                 ),
                 widget.Backlight(
