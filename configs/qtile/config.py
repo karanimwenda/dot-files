@@ -34,7 +34,8 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen
 # from libqtile.layout.tree import TreeNode
 from libqtile.lazy import lazy
 from libqtile.log_utils import logger
-from libqtile.utils import guess_terminal
+
+#  from libqtile.utils import guess_terminal
 
 # mod1 is alt
 mod = "mod4"  # windows key
@@ -42,7 +43,7 @@ terminal = "kitty"
 #  terminal = guess_terminal()
 home = os.path.expanduser("~")
 
-with open(home + "/.config/dot-files/colors/gruvbox.json") as file:
+with open(home + "/.config/dot-files/colors/edge-neon.json") as file:
     theme_colors = file.read()
 
 theme_colors = json.loads(theme_colors)
