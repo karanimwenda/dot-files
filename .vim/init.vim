@@ -50,18 +50,18 @@ Plug 'folke/trouble.nvim'
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-cmp' " -- Autocompletion plugin
-Plug 'hrsh7th/cmp-nvim-lsp' " -- LSP source for nvim-cmp
-Plug 'saadparwaiz1/cmp_luasnip' "  -- Snippets source for nvim-cmp
+" Plug 'hrsh7th/cmp-nvim-lsp' " -- LSP source for nvim-cmp
+" Plug 'saadparwaiz1/cmp_luasnip' "  -- Snippets source for nvim-cmp
 Plug 'L3MON4D3/LuaSnip' " -- Snippets plugin
 
 " Plug 'Chiel92/vim-autoformat'
 
 " theme plugins
-" Plug 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'
 " Plug 'arcticicestudio/nord-vim'
 " Plug 'joshdick/onedark.vim'
 " Plug 'sainnhe/sonokai'
-Plug 'sainnhe/edge'
+" Plug 'sainnhe/edge'
 
 " Initialize plugin system
 call plug#end()
@@ -81,6 +81,7 @@ filetype plugin indent on    " required
 
 " Nim LSP Completion {{{
 lua << EOF
+--[[
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
@@ -114,45 +115,46 @@ require'lspconfig'['intelephense'].setup{
 local luasnip = require 'luasnip'
 
 -- nvim-cmp setup
-local cmp = require 'cmp'
-cmp.setup {
-  snippet = {
-    expand = function(args)
-      luasnip.lsp_expand(args.body)
-    end,
-  },
-  mapping = cmp.mapping.preset.insert({
-    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete(),
-    ['<CR>'] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
-    },
-    ['<Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      elseif luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
-      else
-        fallback()
-      end
-    end, { 'i', 's' }),
-    ['<S-Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif luasnip.jumpable(-1) then
-        luasnip.jump(-1)
-      else
-        fallback()
-      end
-    end, { 'i', 's' }),
-  }),
-  sources = {
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' },
-  },
-}
+ local cmp = require 'cmp'
+ cmp.setup {
+   snippet = {
+     expand = function(args)
+       luasnip.lsp_expand(args.body)
+     end,
+   },
+   mapping = cmp.mapping.preset.insert({
+     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+     ['<C-f>'] = cmp.mapping.scroll_docs(4),
+     ['<C-Space>'] = cmp.mapping.complete(),
+     ['<CR>'] = cmp.mapping.confirm {
+       behavior = cmp.ConfirmBehavior.Replace,
+       select = true,
+     },
+     ['<Tab>'] = cmp.mapping(function(fallback)
+       if cmp.visible() then
+         cmp.select_next_item()
+       elseif luasnip.expand_or_jumpable() then
+         luasnip.expand_or_jump()
+       else
+         fallback()
+       end
+     end, { 'i', 's' }),
+     ['<S-Tab>'] = cmp.mapping(function(fallback)
+       if cmp.visible() then
+         cmp.select_prev_item()
+       elseif luasnip.jumpable(-1) then
+         luasnip.jump(-1)
+       else
+         fallback()
+       end
+     end, { 'i', 's' }),
+   }),
+   sources = {
+     { name = 'nvim_lsp' },
+     { name = 'luasnip' },
+   },
+ }
+ --]]
 EOF
 " }}}
 
@@ -188,16 +190,16 @@ endif
 " }}}
 
 " edge theme {{{
-let g:edge_style = 'neon'
-colorscheme edge
-let g:airline_theme = 'edge'
+" let g:edge_style = 'neon'
+" colorscheme edge
+" let g:airline_theme = 'edge'
 " }}}
 
 " Use gruvbox theme {{{
-" autocmd vimenter * ++nested colorscheme gruvbox
+autocmd vimenter * ++nested colorscheme gruvbox
 " for neovide
-" colorscheme gruvbox
-" let g:airline_theme = 'gruvbox'
+colorscheme gruvbox
+let g:airline_theme = 'gruvbox'
 " }}}
 
 " To show the weird icons in airline {{{
