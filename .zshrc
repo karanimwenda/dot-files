@@ -7,7 +7,7 @@ fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-VULKAN_SDK=('/home/timo/.programs/vulkan_sdk/x86_64')
+VULKAN_SDK=('/home/c3n7/.programs/vulkan_sdk/x86_64')
 export VULKAN_SDK
 # For compatibility with pror releases e.g. vkvia
 export VK_SDK_PATH=$VULKAN_SDK
@@ -17,26 +17,26 @@ export VK_LAYER_PATH=$VULKAN_SDK/etc/vulkan/explicit_layer.d
 export EDITOR=/usr/bin/nvim
 export CHROME_EXECUTABLE=google-chrome-stable
 
-path+=("/home/timo/.programs/flutter/bin")
-path+=("/home/timo/.programs/jam")
-path+=("/home/timo/.gem/ruby/3.0.0/bin")
-path+=("/home/timo/.programs/git_clang_format")
-path+=("/home/timo/Android/Sdk/ndk/22.0.7026061")
-path+=("/home/timo/.cargo/bin")
-path+=("/home/timo/.go/bin")
-path+=("/home/timo/.programs/appimagetool")
-path+=("/home/timo/.npm-global/bin")
-path+=("/home/timo/.programs/exercism")
-path+=("/home/timo/.config/composer/vendor/bin")
-path+=('/home/timo/.programs/rice/eww/target/release')
-path+=('/home/timo/.dotnet/tools')
-path+=('/home/timo/.programs/gdx-setup')
-path+=('/home/timo/.emacs.d/bin')
+path+=("/home/c3n7/.programs/flutter/bin")
+path+=("/home/c3n7/.programs/jam")
+path+=("/home/c3n7/.gem/ruby/3.0.0/bin")
+path+=("/home/c3n7/.programs/git_clang_format")
+path+=("/home/c3n7/Android/Sdk/ndk/22.0.7026061")
+path+=("/home/c3n7/.cargo/bin")
+path+=("/home/c3n7/.go/bin")
+path+=("/home/c3n7/.programs/appimagetool")
+path+=("/home/c3n7/.npm-global/bin")
+path+=("/home/c3n7/.programs/exercism")
+path+=("/home/c3n7/.config/composer/vendor/bin")
+path+=('/home/c3n7/.programs/rice/eww/target/release')
+path+=('/home/c3n7/.dotnet/tools')
+path+=('/home/c3n7/.programs/gdx-setup')
+path+=('/home/c3n7/.emacs.d/bin')
 # Add vulkan to path
 path=($VULKAN_SDK $path)
 export PATH
 
-SCONS="/home/timo/.programs/scons-2.5.1/script/scons"
+SCONS="/home/c3n7/.programs/scons-2.5.1/script/scons"
 export SCONS
 
 # Use clang by default
@@ -44,9 +44,9 @@ export SCONS
 # export CXX=clang++
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/timo/.oh-my-zsh"
-export ANDROID_HOME="/home/timo/Android/Sdk"
-export GOPATH="/home/timo/.go"
+export ZSH="/home/c3n7/.oh-my-zsh"
+export ANDROID_HOME="/home/c3n7/Android/Sdk"
+export GOPATH="/home/c3n7/.go"
 
 export DOTNET_CLI_TELEMETRY_OPTOUT=true
 
@@ -165,7 +165,7 @@ alias nv='neovide > /dev/null & ; disown %1 '
 
 alias icat="kitty +kitten icat"
 
-alias kill_android="killall /home/timo/.programs/android-studio/jre/bin/java"
+alias kill_android="killall /home/c3n7/.programs/android-studio/jre/bin/java"
 
 alias composer7='php7 /usr/bin/composer'
 
