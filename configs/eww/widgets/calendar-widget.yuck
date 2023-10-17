@@ -1,9 +1,9 @@
-(defwidget calendar []
+(defwidget calendar_widget []
         (box
             :orientation "vertical"
             :valign "center"
             :class "calendar"
             :spacing 2
-            
+
         )
 )

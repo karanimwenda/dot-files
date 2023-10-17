@@ -1,9 +1,0 @@
-(defwidget calendar []
-        (box
-            :orientation "vertical"
-            :valign "center"
-            :class "calendar"
-            :spacing 2
-            {{ events }}
-        )
-)

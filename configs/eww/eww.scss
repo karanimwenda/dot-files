@@ -1,5 +1,5 @@
-@import "./themes/edge-neon.scss";
-// @import './themes/gruvbox.scss';
+// @import "./themes/edge-neon.scss";
+@import "./themes/gruvbox.scss";
 
 .bg-red {
   background-color: $red;
@@ -21,15 +21,15 @@ progress {
   background-color: $grey;
   border-radius: 5px;
   margin-bottom: 20px;
-  margin-top: 13px;
+  margin-top: 20px;
   min-width: 233px;
 }
 
 .label {
   all: unset;
-  margin-right: 5px;
+  margin-right: 8px;
   color: $fgcolor;
-  font-size: 40px;
+  font-size: 30px;
 }
 
 .ram_used progress {
@@ -61,8 +61,8 @@ progress {
   color: $fgcolor;
   padding-top: 20px;
   padding-bottom: 20px;
-  padding-left: 70px;
-  padding-right: 70px;
+  padding-left: 65px;
+  padding-right: 65px;
   font-size: 92px;
   font-weight: lighter;
 }
@@ -92,7 +92,7 @@ progress {
   padding-bottom: 00px;
   padding-left: 30px;
   padding-right: 30px;
-  min-width: 318px;
+  min-width: 330px;
 }
 
 .mpd_playing .label {

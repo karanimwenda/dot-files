@@ -20,7 +20,7 @@ export CHROME_EXECUTABLE=google-chrome-stable
 path+=("/home/c3n7/.programs/flutter/bin")
 path+=("/home/c3n7/.programs/jam")
 path+=("/home/c3n7/.gem/ruby/3.0.0/bin")
-path+=("/home/c3n7/.programs/git_clang_format")
+path+=("/home/c3n7/.programs/defold/Defold")
 path+=("/home/c3n7/Android/Sdk/ndk/22.0.7026061")
 path+=("/home/c3n7/.cargo/bin")
 path+=("/home/c3n7/.go/bin")
@@ -28,7 +28,7 @@ path+=("/home/c3n7/.programs/appimagetool")
 path+=("/home/c3n7/.npm-global/bin")
 path+=("/home/c3n7/.programs/exercism")
 path+=("/home/c3n7/.config/composer/vendor/bin")
-path+=('/home/c3n7/.programs/rice/eww/target/release')
+path+=('/home/c3n7/.programs/eww/target/release')
 path+=('/home/c3n7/.dotnet/tools')
 path+=('/home/c3n7/.programs/gdx-setup')
 path+=('/home/c3n7/.emacs.d/bin')
@@ -168,6 +168,7 @@ alias icat="kitty +kitten icat"
 alias kill_android="killall /home/c3n7/.programs/android-studio/jre/bin/java"
 
 alias composer7='php7 /usr/bin/composer'
+alias ssh="kitty +kitten ssh"
 
 alias gpp='git pull && git push'
 alias gppu="git pull upstream main && git push upstream main"
@@ -179,3 +180,8 @@ alias dcd='docker-compose down'
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
 # (cat ~/.cache/wal/sequences &)
+
+# BEGIN SNIPPET: Platform.sh CLI configuration
+HOME=${HOME:-'/home/c3n7'}
+export PATH="$HOME/"'.platformsh/bin':"$PATH"
+if [ -f "$HOME/"'.platformsh/shell-config.rc' ]; then . "$HOME/"'.platformsh/shell-config.rc'; fi # END SNIPPET

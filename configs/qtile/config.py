@@ -43,7 +43,7 @@ terminal = "kitty"
 #  terminal = guess_terminal()
 home = os.path.expanduser("~")
 
-with open(home + "/.config/dot-files/colors/edge-neon.json") as file:
+with open(home + "/.config/dot-files/colors/gruvbox.json") as file:
     theme_colors = file.read()
 
 theme_colors = json.loads(theme_colors)
@@ -55,7 +55,7 @@ def show_notification(title, body, ms_time):
     return notification_cmd
 
 
-dmenu_script = "dmenu_recency -nf '{}' -nb '{}' -sb '{}' -sf '{}' -fn " + \
+dmenu_script = "dmenu_run -nf '{}' -nb '{}' -sb '{}' -sf '{}' -fn " + \
     "'monospace-9' -p 'run:'"
 dmenu_script = dmenu_script.format(
     theme_colors["color5"],
@@ -124,7 +124,7 @@ keys = [
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod, "shift"], "q", lazy.window.kill(), desc="Kill focused window"),
-    Key([mod, "control"], "r", lazy.restart(), desc="Restart Qtile"),
+    Key([mod, "control"], "r", lazy.reload_config(), desc="Restart Qtile"),
     Key([mod, "control", "shift"], "q", lazy.shutdown(),
         desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(),
@@ -295,7 +295,7 @@ extension_defaults = widget_defaults.copy()
 
 
 def refresh_ewwcalendar():
-    logger.warning("refreshing calendar")
+    logger.waning("refreshing calendar")
     qtile.cmd_spawn(
         "python " + home +
         "/.config/dot-files/utils/eww-gcalcli/get-schedule.py"
@@ -357,13 +357,20 @@ screens = [
                 #     name_transform=lambda name: name.upper(),
                 # ),
                 # widget.TextBox("default config", name="default"),
-                widget.Mpd2(
+                #  widget.Mpd2(
+                    #  foreground=theme_colors["background"],
+                    #  background=theme_colors["color14"],
+                #  ),
+                widget.Net(
                     foreground=theme_colors["background"],
-                    background=theme_colors["color14"],
+                    background=theme_colors["color4"],
+                    format="{down} ↓↑ {up}",
+                    padding=8
                 ),
                 widget.CurrentLayout(
                     foreground=theme_colors["color2"],
                     background=theme_colors["background"],
+                    padding=8
                 ),
                 widget.CPU(
                     background=theme_colors["color2"],
@@ -376,21 +383,24 @@ screens = [
                 widget.Volume(
                     background=theme_colors["color5"],
                     foreground=theme_colors["background"],
+                    padding=8
+                ),
+                widget.ThermalSensor(
+                    background=theme_colors["background"],
+                    foreground=theme_colors["color4"],
+                    padding=8
                 ),
                 widget.Backlight(
                     backlight_name="intel_backlight",
-                    background=theme_colors["background"],
-                    foreground=theme_colors["color4"],
-                    format=" {percent:2.0%}",
-                ),
-                widget.Net(
-                    foreground=theme_colors["background"],
                     background=theme_colors["color4"],
-                    format="{down} ↓↑ {up}",
+                    foreground=theme_colors["background"],
+                    format=" {percent:2.0%}",
+                    padding=8
                 ),
-                widget.Battery(
+               widget.Battery(
                     foreground=theme_colors["color11"],
                     background=theme_colors["background"],
+                    padding=10
                 ),
                 widget.Clock(
                     format="%b %d(%a), %Y %H:%M",
