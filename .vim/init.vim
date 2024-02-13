@@ -20,6 +20,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 Plug 'dart-lang/dart-vim-plugin'
@@ -245,6 +246,8 @@ highlight VertSplit cterm=NONE ctermbg=black ctermfg=blue
 let g:NERDTreeFileExtensionHighlightFullName = 1
 let g:NERDTreeExactMatchHighlightFullName = 1
 let g:NERDTreePatternMatchHighlightFullName = 1
+let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
+let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
 " Close NERDtree on file open
 let NERDTreeQuitOnOpen = 1
 " Keyboard mapping for NERDTree
@@ -284,7 +287,7 @@ nmap <leader>bp :bp<cr>
 " buffer funga
 nmap <leader>bf :bdelete<cr>
 nmap <leader>bD :bdelete!<cr>
-command! BufOnly execute '%bdelete|edit #|normal `"'
+command! BufOnly execute '%bdelete!|edit #|normal `"'
 nmap <leader>bc :BufOnly<cr>
 
 " tabs

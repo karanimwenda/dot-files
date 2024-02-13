@@ -345,6 +345,7 @@ screens = [
                     border=theme_colors["color14"],
                     urgent_border=theme_colors["color1"],
                     foreground=theme_colors["color14"],
+                    max_title_width=100,
                 ),
                 # widget.WindowName(
                 #     background=theme_colors['background'],

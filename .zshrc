@@ -32,6 +32,7 @@ path+=('/home/c3n7/.programs/eww/target/release')
 path+=('/home/c3n7/.dotnet/tools')
 path+=('/home/c3n7/.programs/gdx-setup')
 path+=('/home/c3n7/.emacs.d/bin')
+path+=('/home/c3n7/.pub-cache/bin')
 # Add vulkan to path
 path=($VULKAN_SDK $path)
 export PATH
@@ -185,3 +186,9 @@ alias dcd='docker-compose down'
 HOME=${HOME:-'/home/c3n7'}
 export PATH="$HOME/"'.platformsh/bin':"$PATH"
 if [ -f "$HOME/"'.platformsh/shell-config.rc' ]; then . "$HOME/"'.platformsh/shell-config.rc'; fi # END SNIPPET
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /home/c3n7/.dart-cli-completion/zsh-config.zsh ]] && . /home/c3n7/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+
