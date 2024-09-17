@@ -33,6 +33,8 @@ path+=('/home/c3n7/.dotnet/tools')
 path+=('/home/c3n7/.programs/gdx-setup')
 path+=('/home/c3n7/.emacs.d/bin')
 path+=('/home/c3n7/.pub-cache/bin')
+path+=($NVM_BIN)
+path+=(/snap/bin)
 # Add vulkan to path
 path=($VULKAN_SDK $path)
 export PATH
@@ -169,7 +171,7 @@ alias icat="kitty +kitten icat"
 alias kill_android="killall /home/c3n7/.programs/android-studio/jre/bin/java"
 
 alias composer7='php7 /usr/bin/composer'
-alias ssh="kitty +kitten ssh"
+# alias ssh="kitty +kitten ssh"
 
 alias gpp='git pull && git push'
 alias gppu="git pull upstream main && git push upstream main"
@@ -192,3 +194,6 @@ if [ -f "$HOME/"'.platformsh/shell-config.rc' ]; then . "$HOME/"'.platformsh/she
 [[ -f /home/c3n7/.dart-cli-completion/zsh-config.zsh ]] && . /home/c3n7/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
