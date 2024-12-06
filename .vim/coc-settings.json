@@ -3,7 +3,13 @@
     "clangd": {
       "command": "clangd",
       "args": ["--background-index"],
-      "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+      "rootPatterns": [
+        "compile_flags.txt",
+        "compile_commands.json",
+        ".vim/",
+        ".git/",
+        ".hg/"
+      ],
       "filetypes": ["c", "cpp", "objc", "objcpp"]
     },
     "bash": {
@@ -27,13 +33,22 @@
     },
     "lua": {
       "command": "java",
-      "args": ["-cp", "/home/timo/.programs/vim-utils/EmmyLua-LS-all.jar", "com.tang.vscode.MainKt"],
+      "args": [
+        "-cp",
+        "/home/timo/.programs/vim-utils/EmmyLua-LS-all.jar",
+        "com.tang.vscode.MainKt"
+      ],
       "filetypes": ["lua"],
       "rootPatterns": [".git/"]
     }
   },
   "[javascript][[typescript][typescriptreact][javascriptreact][json][javascriptreact][graphql][html][htmldjango][blade][dart][go][java][php][yaml][lua][css][xml][python][scss][vue]": {
     "coc.preferences.formatOnSave": true
+  },
+  "emmet.includeLanguages": {
+    "php": "html",
+    "blade": "html",
+    "javascript": "javascriptreact"
   },
   "prettier.enable": true,
   "prettier.formatterPriority": 10000,
@@ -47,6 +62,7 @@
   "jedi.startupMessage": true,
   "jedi.hover.enable": true,
   "intelephense.diagnostics.undefinedMethods": false,
+  "intelephense.format.enable": true,
   "intelephense.stubs": [
     "apache",
     "bcmath",
