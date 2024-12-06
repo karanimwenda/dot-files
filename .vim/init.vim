@@ -46,8 +46,7 @@ Plug 'folke/todo-comments.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'folke/trouble.nvim'
 
-" Plug 'williamboman/nvim-lsp-installer'
-Plug 'williamboman/mason.nvim'
+Plug 'williamboman/nvim-lsp-installer'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-cmp' " -- Autocompletion plugin
 " Plug 'hrsh7th/cmp-nvim-lsp' " -- LSP source for nvim-cmp
@@ -57,11 +56,11 @@ Plug 'L3MON4D3/LuaSnip' " -- Snippets plugin
 " Plug 'Chiel92/vim-autoformat'
 
 " theme plugins
-" Plug 'ellisonleao/gruvbox.nvim'
+Plug 'ellisonleao/gruvbox.nvim'
 " Plug 'arcticicestudio/nord-vim'
 " Plug 'joshdick/onedark.vim'
 " Plug 'sainnhe/sonokai'
-Plug 'sainnhe/edge'
+" Plug 'sainnhe/edge'
 
 " Initialize plugin system
 call plug#end()
@@ -189,17 +188,18 @@ endif
 " let g:airline_theme = 'sonokai'
 " }}}
 
-" edge theme {{{
-let g:edge_style = 'neon'
-colorscheme edge
-let g:airline_theme = 'edge'
+"  edge theme {{{
+" let g:edge_style = 'neon'
+" colorscheme edge
+" let g:airline_theme = 'edge'
 " }}}
 
 " Use gruvbox theme {{{
-" autocmd vimenter * ++nested colorscheme gruvbox
+autocmd vimenter * ++nested colorscheme gruvbox
+set background=dark
 " for neovide
-" colorscheme gruvbox
-" let g:airline_theme = 'base16_gruvbox_dark_medium'
+colorscheme gruvbox
+let g:airline_theme = 'base16_gruvbox_dark_medium'
 " }}}
 
 " To show the weird icons in airline {{{
