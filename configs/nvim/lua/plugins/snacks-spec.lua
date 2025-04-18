@@ -13,7 +13,15 @@ return {
 			explorer = { enabled = true },
 			indent = { enabled = true },
 			input = { enabled = true },
-			picker = { enabled = true },
+			picker = {
+				enabled = true,
+				sources = {
+					explorer = {
+						autoclose = true,
+						jump = { close = true }, -- jump close true ensures closing on file open
+					},
+				},
+			},
 			notifier = { enabled = true },
 			quickfile = { enabled = true },
 			scope = { enabled = true },
