@@ -45,6 +45,9 @@
   "[javascript][[typescript][typescriptreact][javascriptreact][json][javascriptreact][graphql][html][htmldjango][blade][dart][go][java][php][yaml][lua][css][xml][python][scss][vue]": {
     "coc.preferences.formatOnSave": true
   },
+  "[blade]": {
+    "coc.preferences.formatterExtension": "coc-blade"
+  },
   "emmet.includeLanguages": {
     "php": "html",
     "blade": "html",

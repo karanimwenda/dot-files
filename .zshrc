@@ -1,4 +1,4 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Enable Powerlevel10k instant prompt. Should stay close to the top of $HOME/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block, everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
@@ -7,7 +7,7 @@ fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-VULKAN_SDK=('/home/~/.programs/vulkan_sdk/x86_64')
+VULKAN_SDK=('$HOME/.programs/vulkan_sdk/x86_64')
 export VULKAN_SDK
 # For compatibility with pror releases e.g. vkvia
 export VK_SDK_PATH=$VULKAN_SDK
@@ -17,29 +17,29 @@ export VK_LAYER_PATH=$VULKAN_SDK/etc/vulkan/explicit_layer.d
 export EDITOR=/usr/bin/nvim
 export CHROME_EXECUTABLE=google-chrome-stable
 
-path+=("/home/~/.programs/flutter/bin")
-path+=("/home/~/.programs/jam")
-path+=("/home/~/.gem/ruby/3.0.0/bin")
-path+=("/home/~/.programs/defold/Defold")
-path+=("/home/~/Android/Sdk/ndk/22.0.7026061")
-path+=("/home/~/.cargo/bin")
-path+=("/home/~/.go/bin")
-path+=("/home/~/.programs/appimagetool")
-path+=("/home/~/.npm-global/bin")
-path+=("/home/~/.programs/exercism")
-path+=("/home/~/.config/composer/vendor/bin")
-path+=('/home/~/.programs/eww/target/release')
-path+=('/home/~/.dotnet/tools')
-path+=('/home/~/.programs/gdx-setup')
-path+=('/home/~/.emacs.d/bin')
-path+=('/home/~/.pub-cache/bin')
+path+=("$HOME/.programs/flutter/bin")
+path+=("$HOME/.programs/jam")
+path+=("$HOME/.gem/ruby/3.0.0/bin")
+path+=("$HOME/.programs/defold/Defold")
+path+=("$HOME/Android/Sdk/ndk/22.0.7026061")
+path+=("$HOME/.cargo/bin")
+path+=("$HOME/.go/bin")
+path+=("$HOME/.programs/appimagetool")
+path+=("$HOME/.npm-global/bin")
+path+=("$HOME/.programs/exercism")
+path+=("$HOME/.config/composer/vendor/bin")
+path+=('$HOME/.programs/eww/target/release')
+path+=('$HOME/.dotnet/tools')
+path+=('$HOME/.programs/gdx-setup')
+path+=('$HOME/.emacs.d/bin')
+path+=('$HOME/.pub-cache/bin')
 path+=($NVM_BIN)
 path+=(/snap/bin)
 # Add vulkan to path
 path=($VULKAN_SDK $path)
 export PATH
 
-SCONS="/home/~/.programs/scons-2.5.1/script/scons"
+SCONS="$HOME/.programs/scons-2.5.1/script/scons"
 export SCONS
 
 # Use clang by default
@@ -47,9 +47,9 @@ export SCONS
 # export CXX=clang++
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/~/.oh-my-zsh"
-export ANDROID_HOME="/home/~/Android/Sdk"
-export GOPATH="/home/~/.go"
+export ZSH="$HOME/.oh-my-zsh"
+export ANDROID_HOME="$HOME/Android/Sdk"
+export GOPATH="$HOME/.go"
 
 export DOTNET_CLI_TELEMETRY_OPTOUT=true
 
@@ -58,8 +58,8 @@ eval "$(zoxide init zsh)"
 eval `ssh-agent` > /dev/null
 
 # Enable both 32 bit and 64 bit Wine environments
-#WINEARCH=win32 WINEPREFIX=~/win32 winecfg
-#WINEPREFIX=~/win64 winecfg
+#WINEARCH=win32 WINEPREFIX=$HOME/win32 winecfg
+#WINEPREFIX=$HOME/win64 winecfg
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -71,7 +71,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+# a theme from this variable instead of looking in $HOME/.oh-my-zsh/themes/
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
@@ -123,8 +123,8 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Standard plugins can be found in $HOME/.oh-my-zsh/plugins/*
+# Custom plugins may be added to $HOME/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 zstyle ':omz:plugins:nvm' lazy yes
@@ -155,8 +155,8 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# alias zshconfig="mate $HOME/.zshrc"
+# alias ohmyzsh="mate $HOME/.oh-my-zsh"
 
 alias ls='lsd'
 alias l='ls -a'
@@ -168,7 +168,7 @@ alias nv='neovide > /dev/null & ; disown %1 '
 
 alias icat="kitty +kitten icat"
 
-alias kill_android="killall /home/~/.programs/android-studio/jre/bin/java"
+alias kill_android="killall $HOME/.programs/android-studio/jre/bin/java"
 
 alias composer7='php7 /usr/bin/composer'
 # alias ssh="kitty +kitten ssh"
@@ -178,20 +178,22 @@ alias gppu="git pull upstream main && git push upstream main"
 alias gpb="git pull && git push && git pull upstream main && git push upstream main"
 alias dcu='docker-compose up -d'
 alias dcd='docker-compose down'
+alias php-83='alias php=php8.3'
+alias php-latest='alias php=/usr/bin/php'
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+# To customize prompt, run `p10k configure` or edit $HOME/.p10k.zsh.
+[[ -f $HOME/.p10k.zsh ]] && source $HOME/.p10k.zsh
 
-# (cat ~/.cache/wal/sequences &)
+# (cat $HOME/.cache/wal/sequences &)
 
 # BEGIN SNIPPET: Platform.sh CLI configuration
-HOME=${HOME:-'/home/~'}
+HOME=${HOME:-'$HOME'}
 export PATH="$HOME/"'.platformsh/bin':"$PATH"
 if [ -f "$HOME/"'.platformsh/shell-config.rc' ]; then . "$HOME/"'.platformsh/shell-config.rc'; fi # END SNIPPET
 
 ## [Completion]
 ## Completion scripts setup. Remove the following line to uninstall
-[[ -f /home/~/.dart-cli-completion/zsh-config.zsh ]] && . /home/~/.dart-cli-completion/zsh-config.zsh || true
+[[ -f $HOME/.dart-cli-completion/zsh-config.zsh ]] && . $HOME/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
 
 # export NVM_DIR="$HOME/.nvm"
