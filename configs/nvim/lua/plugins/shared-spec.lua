@@ -74,6 +74,18 @@ return {
 				highlight = { enable = true },
 				indent = { enable = true },
 			})
+
+			-- https://seankegel.com/neovim-for-php-and-laravel
+			-- https://medium.com/@jogarcia/laravel-blade-on-neovim-ee530ff5d20d
+			local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+			parser_config.blade = {
+				install_info = {
+					url = "https://github.com/EmranMR/tree-sitter-blade",
+					files = { "src/parser.c" },
+					branch = "main",
+				},
+				filetype = "blade",
+			}
 		end,
 	},
 
@@ -87,6 +99,13 @@ return {
 
 	{
 		"numToStr/Comment.nvim",
+		opts = {
+			-- add any options here
+		},
+	},
+
+	{
+		"dinhhuy258/git.nvim",
 		opts = {
 			-- add any options here
 		},

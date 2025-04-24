@@ -127,6 +127,8 @@ return {
 				formatters_by_ft = {
 					lua = { "stylua" },
 					python = { "isort", "black" },
+					php = { "pint" },
+					blade = { "blade-formatter" }, -- https://medium.com/@jogarcia/laravel-blade-on-neovim-ee530ff5d20d
 				},
 				format_on_save = {
 					-- These options will be passed to conform.format()
