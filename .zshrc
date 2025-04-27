@@ -178,8 +178,8 @@ alias gppu="git pull upstream main && git push upstream main"
 alias gpb="git pull && git push && git pull upstream main && git push upstream main"
 alias dcu='docker-compose up -d'
 alias dcd='docker-compose down'
-alias php-83='alias php=php8.3'
-alias php-latest='alias php=/usr/bin/php'
+alias php-83='sudo update-alternatives --set php /usr/bin/php8.3 && php -v'
+alias php-latest='sudo update-alternatives --auto php && php -v'
 
 # To customize prompt, run `p10k configure` or edit $HOME/.p10k.zsh.
 [[ -f $HOME/.p10k.zsh ]] && source $HOME/.p10k.zsh
