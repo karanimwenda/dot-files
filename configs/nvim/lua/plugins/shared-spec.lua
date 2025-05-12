@@ -106,8 +106,8 @@ return {
 
 	{
 		"tpope/vim-fugitive",
-		opts = {
-			-- add any options here
-		},
+		config = function()
+			--vim-fugitive
+		end,
 	},
 }
