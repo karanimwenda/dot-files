@@ -16,9 +16,15 @@ return {
 			picker = {
 				enabled = true,
 				sources = {
+					files = {
+						hidden = true,
+						ignored = true,
+					},
 					explorer = {
 						autoclose = true,
 						jump = { close = true }, -- jump close true ensures closing on file open
+						hidden = true,
+						ignored = true,
 					},
 				},
 			},

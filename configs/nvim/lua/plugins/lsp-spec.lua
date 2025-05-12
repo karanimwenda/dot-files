@@ -71,6 +71,7 @@ return {
 			{ "hrsh7th/cmp-nvim-lsp" },
 			{ "williamboman/mason.nvim" },
 			{ "williamboman/mason-lspconfig.nvim" },
+			{ "windwp/nvim-ts-autotag" },
 		},
 		init = function()
 			-- Reserve a space in the gutter
@@ -105,8 +106,33 @@ return {
 				end,
 			})
 
+			require("nvim-ts-autotag").setup({
+				opts = {
+					-- Defaults
+					enable_close = true, -- Auto close tags
+					enable_rename = true, -- Auto rename pairs of tags
+					enable_close_on_slash = false, -- Auto close on trailing </
+				},
+				-- Also override individual filetype configs, these take priority.
+				-- Empty by default, useful if one of the "opts" global settings
+				-- doesn't work well in a specific filetype
+				-- per_filetype = {
+				--   ["html"] = {
+				--     enable_close = false
+				--   }
+				-- }
+			})
+
 			require("mason-lspconfig").setup({
-				ensure_installed = { "pyright", "intelephense" },
+				ensure_installed = {
+					"emmet_language_server",
+					"eslint",
+					"intelephense",
+					"pyright",
+					"tailwindcss",
+					"ts_ls",
+					"yamlls",
+				},
 				handlers = {
 					-- this first function is the "default handler"
 					-- it applies to every language server without a "custom handler"
@@ -129,6 +155,8 @@ return {
 					python = { "isort", "black" },
 					php = { "pint" },
 					blade = { "blade-formatter" }, -- https://medium.com/@jogarcia/laravel-blade-on-neovim-ee530ff5d20d
+					typescriptreact = { "prettier" },
+					yml = { "prettier" },
 				},
 				format_on_save = {
 					-- These options will be passed to conform.format()

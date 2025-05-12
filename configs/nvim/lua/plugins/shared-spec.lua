@@ -105,7 +105,7 @@ return {
 	},
 
 	{
-		"dinhhuy258/git.nvim",
+		"tpope/vim-fugitive",
 		opts = {
 			-- add any options here
 		},
