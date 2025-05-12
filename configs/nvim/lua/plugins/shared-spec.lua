@@ -110,4 +110,12 @@ return {
 			--vim-fugitive
 		end,
 	},
+
+	{
+		"lewis6991/gitsigns.nvim",
+		config = function()
+			require("gitsigns").setup()
+			--gitsigns
+		end,
+	},
 }
