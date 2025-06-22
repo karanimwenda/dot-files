@@ -5,7 +5,7 @@ vim.opt.expandtab = true -- convert tabs to spaces
 vim.opt.autoindent = true -- auto indentation
 vim.opt.list = true -- show tab characters and trailing whitespace
 
-vim.opt.relativenumber = true
+vim.opt.relativenumber = false
 vim.opt.number = true
 
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {

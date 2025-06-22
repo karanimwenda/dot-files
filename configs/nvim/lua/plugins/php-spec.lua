@@ -15,6 +15,17 @@ return {
 		},
 		event = { "VeryLazy" },
 		opts = {
+			environments = {
+				default = "local",
+				definitions = {
+					{
+						name = "sail",
+						conditions = {
+							file_exists = { "does-not-exist" }, -- ensure laravel.nvim never starts sail
+						},
+					},
+				},
+			},
 			features = {
 				route_info = {
 					enable = true,

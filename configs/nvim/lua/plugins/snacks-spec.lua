@@ -18,7 +18,6 @@ return {
 				sources = {
 					files = {
 						hidden = true,
-						ignored = true,
 					},
 					explorer = {
 						autoclose = true,

@@ -118,4 +118,6 @@ return {
 			--gitsigns
 		end,
 	},
+
+	{ "wakatime/vim-wakatime", lazy = false },
 }
