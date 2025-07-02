@@ -157,6 +157,7 @@ return {
 					blade = { "blade-formatter" }, -- https://medium.com/@jogarcia/laravel-blade-on-neovim-ee530ff5d20d
 					typescriptreact = { "prettier" },
 					yml = { "prettier" },
+					xml = { "prettier" },
 				},
 				format_on_save = {
 					-- These options will be passed to conform.format()
