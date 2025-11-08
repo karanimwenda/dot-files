@@ -7,7 +7,7 @@ fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-VULKAN_SDK=('$HOME/.programs/vulkan_sdk/x86_64')
+VULKAN_SDK=("$HOME/.programs/vulkan_sdk/x86_64")
 export VULKAN_SDK
 # For compatibility with pror releases e.g. vkvia
 export VK_SDK_PATH=$VULKAN_SDK
@@ -28,11 +28,11 @@ path+=("$HOME/.programs/appimagetool")
 path+=("$HOME/.npm-global/bin")
 path+=("$HOME/.programs/exercism")
 path+=("$HOME/.config/composer/vendor/bin")
-path+=('$HOME/.programs/eww/target/release')
-path+=('$HOME/.dotnet/tools')
-path+=('$HOME/.programs/gdx-setup')
-path+=('$HOME/.emacs.d/bin')
-path+=('$HOME/.pub-cache/bin')
+path+=("$HOME/.programs/eww/target/release")
+path+=("$HOME/.dotnet/tools")
+path+=("$HOME/.programs/gdx-setup")
+path+=("$HOME/.emacs.d/bin")
+path+=("$HOME/.pub-cache/bin")
 path+=($NVM_BIN)
 path+=(/snap/bin)
 # Add vulkan to path
@@ -180,6 +180,7 @@ alias dcu='docker-compose up -d'
 alias dcd='docker-compose down'
 alias php-83='sudo update-alternatives --set php /usr/bin/php8.3 && php -v'
 alias php-latest='sudo update-alternatives --auto php && php -v'
+alias a='php artisan'
 
 # To customize prompt, run `p10k configure` or edit $HOME/.p10k.zsh.
 [[ -f $HOME/.p10k.zsh ]] && source $HOME/.p10k.zsh
@@ -196,6 +197,6 @@ if [ -f "$HOME/"'.platformsh/shell-config.rc' ]; then . "$HOME/"'.platformsh/she
 [[ -f $HOME/.dart-cli-completion/zsh-config.zsh ]] && . $HOME/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
 
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
