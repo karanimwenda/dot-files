@@ -8,8 +8,17 @@ return {
 			"nvim-neotest/nvim-nio",
 			-- "ravitemer/mcphub.nvim", -- optional
 		},
+		ft = { "php", "blade" },
+		event = { "BufEnter composer.json" },
 		cmd = { "Laravel" },
 		keys = {
+			{
+				"<leader>lC",
+				function()
+					Laravel.commands.run("env:configure")
+				end,
+				desc = "Laravel: Configure laravel.nvim",
+			},
 			{
 				"<leader>ll",
 				function()
@@ -79,6 +88,13 @@ return {
 					Laravel.commands.run("command_center")
 				end,
 				desc = "Laravel: Open Command Center",
+			},
+			{
+				"<leader>lu",
+				function()
+					Laravel.commands.run("hub")
+				end,
+				desc = "Laravel Artisan hub",
 			},
 			{
 				"gf",
