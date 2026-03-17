@@ -1,6 +1,7 @@
 font-family = "Hasklug Nerd Font Med"
 font-size = 13
-# font-thicken = true
+# https://github.com/ghostty-org/ghostty/discussions/5948#discussioncomment-12290083
+font-thicken = true
 # font-thicken-strength = 200
 
 theme = gruvbox-material-medium-dark
