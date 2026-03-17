@@ -1,0 +1,6 @@
+font-family = "Hasklug Nerd Font Med"
+font-size = 13
+# font-thicken = true
+# font-thicken-strength = 200
+
+theme = gruvbox-material-medium-dark
